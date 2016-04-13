@@ -13,5 +13,5 @@ angular.module('belponto')
 			    }
 			});
   
-		//$urlRouterProvider.otherwise("/state1");
+		$urlRouterProvider.otherwise("/login");
 	});
