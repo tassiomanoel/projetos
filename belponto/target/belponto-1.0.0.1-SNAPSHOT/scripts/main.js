@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('belponto',  ['ngAnimate', 'ui.bootstrap', 'ui-router'])
+angular.module('belponto',  ['ngAnimate', 'ui.bootstrap', 'ui.router'])
 
 //.run(function($rootScope, $window){
 //	$rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
