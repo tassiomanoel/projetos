@@ -5,6 +5,10 @@ angular.module('belponto')
 		$stateProvider
 			.state('login', {
 				url: '/login',
+				data: {
+                    //roles: ['ROLE_ADMIN','ROLE_PERITO'],
+                    pageTitle: 'Login'
+                },
 				views: {
 		            'login@': {
 		                templateUrl: 'scripts/login/login.html',
@@ -13,5 +17,5 @@ angular.module('belponto')
 			    }
 			});
   
-		$urlRouterProvider.otherwise("/login");
+		//$urlRouterProvider.otherwise("/login");
 	});
