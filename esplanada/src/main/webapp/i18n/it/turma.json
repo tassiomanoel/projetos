@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Genera un nuovo Turma",
+                "createOrEditLabel": "Genera o modifica un Turma",
+                "search": "Cerca Turma"
+            },
+            "created": "&Egrave; stato generato un nuovo Turma con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Turma identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Turma con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Turma {{ id }}?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

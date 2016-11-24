@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "gestor" : {
+            "home": {
+                "title": "Gestors",
+                "createLabel": "Create a new Gestor",
+                "createOrEditLabel": "Create or edit a Gestor",
+                "search": "Search for Gestor"
+            },
+            "created": "A new Gestor is created with identifier {{ param }}",
+            "updated": "A Gestor is updated with identifier {{ param }}",
+            "deleted": "A Gestor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Gestor {{ id }}?"
+            },
+            "detail": {
+                "title": "Gestor"
+            },
+            "nome": "Nome",
+            "email": "Email",
+            "idade": "Idade",
+            "turma": "Turma",
+            "professor": "Professor",
+            "aluno": "Aluno"
+        }
+    }
+}

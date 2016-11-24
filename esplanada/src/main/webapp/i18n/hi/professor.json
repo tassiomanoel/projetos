@@ -1,0 +1,28 @@
+{
+    "colegioEsplanadaApp": {
+        "professor" : {
+            "home": {
+                "title": "Professors",
+                "createLabel": "नया Professor बनाएँ",
+                "createOrEditLabel": "Professor बनाएँ या संपादित करें",
+                "search": "Professor खोजें"
+            },
+            "created": "एक नया Professor [identifier: {{ param }}] तैयार है",
+            "updated": "एक Professor [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Professor [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Professor [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Professor"
+            },
+            "nome": "Nome",
+            "anotacao": "Anotacao",
+            "atividade": "Atividade",
+            "upload": "Upload",
+            "professorGestor": "Professor Gestor",
+            "professorTurma": "Professor Turma",
+            "professorAluno": "Professor Aluno"
+        }
+    }
+}

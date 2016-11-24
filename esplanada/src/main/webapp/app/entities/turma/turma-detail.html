@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="colegioEsplanadaApp.turma.detail.title">Turma</span> {{vm.turma.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="colegioEsplanadaApp.turma.nome">Nome</span></dt>
+        <dd>
+            <span>{{vm.turma.nome}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.turma.dataCadastro">Data Cadastro</span></dt>
+        <dd>
+            <span>{{vm.turma.dataCadastro}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.turma.nota">Nota</span></dt>
+        <dd>
+            <span>{{vm.turma.nota}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.turma.frequencia">Frequencia</span></dt>
+        <dd>
+            <span>{{vm.turma.frequencia}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.turma.atividades">Atividades</span></dt>
+        <dd>
+            <span>{{vm.turma.atividades}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.turma.turma">Turma</span></dt>
+        <dd>
+            <a ui-sref="gestor-detail({id:vm.turma.turma.id})">{{vm.turma.turma.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="turma-detail.edit({id:vm.turma.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

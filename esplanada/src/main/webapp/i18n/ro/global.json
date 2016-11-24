@@ -10,6 +10,10 @@
                 "bankAccount": "ContBancar",
                 "label": "Etichetă",
                 "operation": "Operație",
+                "gestor": "Gestor",
+                "turma": "Turma",
+                "aluno": "Aluno",
+                "professor": "Professor",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

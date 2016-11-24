@@ -368,6 +368,15 @@
             <artifactId>spring-security-data</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.40</version>
+		</dependency>
+
+        
     </dependencies>
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>

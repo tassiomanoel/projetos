@@ -1,0 +1,29 @@
+{
+    "colegioEsplanadaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Crear nuevo Aluno",
+                "createOrEditLabel": "Crear o editar Aluno",
+                "search": "Search for Aluno"
+            },
+            "created": "Un nuevo Aluno ha sido creado con el identificador {{ param }}",
+            "updated": "Un Aluno ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Aluno ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "nome": "Nome",
+            "frequencia": "Frequencia",
+            "nota": "Nota",
+            "atividades": "Atividades",
+            "dataCadastro": "Data Cadastro",
+            "alunoTurma": "Aluno Turma",
+            "alunoGestor": "Aluno Gestor",
+            "alunoProfessor": "Aluno Professor"
+        }
+    }
+}

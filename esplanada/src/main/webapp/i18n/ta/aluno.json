@@ -1,0 +1,29 @@
+{
+    "colegioEsplanadaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Aluno-ஐ உருவாக்கு",
+                "createOrEditLabel": "Aluno -ஐ மாற்று (அ) உருவாக்கு",
+                "search": "Search for Aluno"
+            },
+            "created": "Aluno புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Aluno மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Aluno நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "nome": "Nome",
+            "frequencia": "Frequencia",
+            "nota": "Nota",
+            "atividades": "Atividades",
+            "dataCadastro": "Data Cadastro",
+            "alunoTurma": "Aluno Turma",
+            "alunoGestor": "Aluno Gestor",
+            "alunoProfessor": "Aluno Professor"
+        }
+    }
+}

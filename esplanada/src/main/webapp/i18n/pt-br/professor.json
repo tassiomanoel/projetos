@@ -1,0 +1,28 @@
+{
+    "colegioEsplanadaApp": {
+        "professor" : {
+            "home": {
+                "title": "Professors",
+                "createLabel": "Criar novo Professor",
+                "createOrEditLabel": "Criar ou editar Professor",
+                "search": "Pesquisar por Professor"
+            },
+            "created": "Um novo Professor é criado com o identificador {{ param }}",
+            "updated": "Um Professor é atualizado com o identificador {{ param }}",
+            "deleted": "Um Professor é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Professor {{ id }}?"
+            },
+            "detail": {
+                "title": "Professor"
+            },
+            "nome": "Nome",
+            "anotacao": "Anotacao",
+            "atividade": "Atividade",
+            "upload": "Upload",
+            "professorGestor": "Professor Gestor",
+            "professorTurma": "Professor Turma",
+            "professorAluno": "Professor Aluno"
+        }
+    }
+}

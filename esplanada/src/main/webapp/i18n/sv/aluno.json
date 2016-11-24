@@ -1,0 +1,29 @@
+{
+    "colegioEsplanadaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Skapa en ny Aluno",
+                "createOrEditLabel": "Skapa eller ändra en Aluno",
+                "search": "Sök efter Aluno"
+            },
+            "created": "En ny Aluno är skapad med id {{ param }}",
+            "updated": "En Aluno är uppdaterad med id  {{ param }}",
+            "deleted": "En Aluno är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "nome": "Nome",
+            "frequencia": "Frequencia",
+            "nota": "Nota",
+            "atividades": "Atividades",
+            "dataCadastro": "Data Cadastro",
+            "alunoTurma": "Aluno Turma",
+            "alunoGestor": "Aluno Gestor",
+            "alunoProfessor": "Aluno Professor"
+        }
+    }
+}

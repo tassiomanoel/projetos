@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Crează o nouă Turma",
+                "createOrEditLabel": "Crează sau editează o Turma",
+                "search": "Search for Turma"
+            },
+            "created": "O nouă Turma este creată cu identificatorul {{ param }}",
+            "updated": "O Turma este editată cu identificatorul {{ param }}",
+            "deleted": "O Turma este stearsă cu identificatorul {{ param }}",
+            "delete": {
+                "question": "Ești sigur că dorești să stergi Turma {{ id }}?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

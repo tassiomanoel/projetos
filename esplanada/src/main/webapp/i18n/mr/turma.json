@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "नवीन Turma तयार करा",
+                "createOrEditLabel": "Turma तयार किंवा संपादित करा",
+                "search": "Turma शोधा"
+            },
+            "created": "Turma [identifier: {{ param }}] तयार आहे",
+            "updated": "Turma [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Turma [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Turma [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Vytvořit Turma",
+                "createOrEditLabel": "Vytvořit nebo upravit Turma",
+                "search": "Vyhledat Turma"
+            },
+            "created": "Byl vytvořen potomek entity Turma s identifikátorem {{ param }}",
+            "updated": "Potomek entity Turma s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Turma s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Turma {{ id }}?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

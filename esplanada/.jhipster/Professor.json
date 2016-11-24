@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "professorGestor",
+            "otherEntityName": "gestor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "professorTurma",
+            "otherEntityName": "turma",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "professorAluno",
+            "otherEntityName": "aluno",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "aluno"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "anotacao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "atividade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "upload",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161124202012",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "professor",
+    "pagination": "no"
+}

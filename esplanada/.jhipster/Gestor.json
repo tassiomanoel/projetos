@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "turma",
+            "otherEntityName": "turma",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "gestorTurma"
+        },
+        {
+            "relationshipName": "professor",
+            "otherEntityName": "professor",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "gestorProfessor"
+        },
+        {
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "gestorAluno"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idade",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20161124200314",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "gestor",
+    "pagination": "no"
+}

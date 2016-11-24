@@ -37,5 +37,45 @@
            timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="br.com.esplanada.domain.Gestor"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Gestor.turmas"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Gestor.professors"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Gestor.alunos"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Turma"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Aluno"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Aluno.alunoTurmas"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Aluno.alunoProfessors"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Professor"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="br.com.esplanada.domain.Professor.professorAlunos"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

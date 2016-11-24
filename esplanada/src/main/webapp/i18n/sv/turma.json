@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Skapa en ny Turma",
+                "createOrEditLabel": "Skapa eller ändra en Turma",
+                "search": "Sök efter Turma"
+            },
+            "created": "En ny Turma är skapad med id {{ param }}",
+            "updated": "En Turma är uppdaterad med id  {{ param }}",
+            "deleted": "En Turma är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Turma {{ id }}?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

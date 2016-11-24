@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Turma erstellen",
+                "createOrEditLabel": "Turma erstellen oder bearbeiten",
+                "search": "Suche nach Turma"
+            },
+            "created": "Turma erstellt mit ID {{ param }}",
+            "updated": "Turma aktualisiert mit ID {{ param }}",
+            "deleted": "Turma gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Turma {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "turma",
+            "otherEntityName": "gestor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nota",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "frequencia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "atividades",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161124201200",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "turma",
+    "pagination": "no"
+}

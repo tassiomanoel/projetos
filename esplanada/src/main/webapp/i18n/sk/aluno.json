@@ -1,0 +1,29 @@
+{
+    "colegioEsplanadaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Pridať Aluno",
+                "createOrEditLabel": "Pridať alebo upraviť Aluno",
+                "search": "Vyhľadať Aluno"
+            },
+            "created": "Bol vytvorený potomok entity Aluno s identifikátorom {{ param }}",
+            "updated": "Potomok entity Aluno s identifikátorom {{ param }} bol upravený.",
+            "deleted": "Potomok entity Aluno s identifikátorom {{ param }} bol vymazaný.",
+            "delete": {
+                "question": "Ste si istý, že chcete vymazať Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "nome": "Nome",
+            "frequencia": "Frequencia",
+            "nota": "Nota",
+            "atividades": "Atividades",
+            "dataCadastro": "Data Cadastro",
+            "alunoTurma": "Aluno Turma",
+            "alunoGestor": "Aluno Gestor",
+            "alunoProfessor": "Aluno Professor"
+        }
+    }
+}

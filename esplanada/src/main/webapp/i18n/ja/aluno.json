@@ -1,0 +1,29 @@
+{
+    "colegioEsplanadaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Aluno を追加",
+                "createOrEditLabel": "Alunoを追加または編集",
+                "search": "Search for Aluno"
+            },
+            "created": "A new Aluno is created with identifier {{ param }}",
+            "updated": "A Aluno is updated with identifier {{ param }}",
+            "deleted": "A Aluno is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Aluno {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "nome": "Nome",
+            "frequencia": "Frequencia",
+            "nota": "Nota",
+            "atividades": "Atividades",
+            "dataCadastro": "Data Cadastro",
+            "alunoTurma": "Aluno Turma",
+            "alunoGestor": "Aluno Gestor",
+            "alunoProfessor": "Aluno Professor"
+        }
+    }
+}

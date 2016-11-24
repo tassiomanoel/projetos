@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="colegioEsplanadaApp.professor.detail.title">Professor</span> {{vm.professor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="colegioEsplanadaApp.professor.nome">Nome</span></dt>
+        <dd>
+            <span>{{vm.professor.nome}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.professor.anotacao">Anotacao</span></dt>
+        <dd>
+            <span>{{vm.professor.anotacao}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.professor.atividade">Atividade</span></dt>
+        <dd>
+            <span>{{vm.professor.atividade}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.professor.upload">Upload</span></dt>
+        <dd>
+            <span>{{vm.professor.upload}}</span>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.professor.professorGestor">Professor Gestor</span></dt>
+        <dd>
+            <a ui-sref="gestor-detail({id:vm.professor.professorGestor.id})">{{vm.professor.professorGestor.id}}</a>
+        </dd>
+        <dt><span data-translate="colegioEsplanadaApp.professor.professorTurma">Professor Turma</span></dt>
+        <dd>
+            <a ui-sref="turma-detail({id:vm.professor.professorTurma.id})">{{vm.professor.professorTurma.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="professor-detail.edit({id:vm.professor.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

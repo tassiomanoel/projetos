@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAlunoLabel" data-translate="colegioEsplanadaApp.aluno.home.createOrEditLabel">Create or edit a Aluno</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.aluno.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.aluno.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="colegioEsplanadaApp.aluno.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                    ng-model="vm.aluno.nome"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="colegioEsplanadaApp.aluno.frequencia" for="field_frequencia">Frequencia</label>
+            <input type="text" class="form-control" name="frequencia" id="field_frequencia"
+                    ng-model="vm.aluno.frequencia"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="colegioEsplanadaApp.aluno.nota" for="field_nota">Nota</label>
+            <input type="text" class="form-control" name="nota" id="field_nota"
+                    ng-model="vm.aluno.nota"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="colegioEsplanadaApp.aluno.atividades" for="field_atividades">Atividades</label>
+            <input type="text" class="form-control" name="atividades" id="field_atividades"
+                    ng-model="vm.aluno.atividades"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="colegioEsplanadaApp.aluno.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+            <input type="text" class="form-control" name="dataCadastro" id="field_dataCadastro"
+                    ng-model="vm.aluno.dataCadastro"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="colegioEsplanadaApp.aluno.alunoGestor" for="field_alunoGestor">Aluno Gestor</label>
+            <select class="form-control" id="field_alunoGestor" name="alunoGestor" ng-model="vm.aluno.alunoGestor" ng-options="gestor as gestor.id for gestor in vm.gestors track by gestor.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "alunoTurma",
+            "otherEntityName": "turma",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "gestor"
+        },
+        {
+            "relationshipName": "alunoGestor",
+            "otherEntityName": "gestor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "alunoProfessor",
+            "otherEntityName": "professor",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "professor"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "frequencia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nota",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "atividades",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161124201607",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "aluno",
+    "pagination": "no"
+}

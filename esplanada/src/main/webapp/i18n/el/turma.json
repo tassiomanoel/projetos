@@ -1,0 +1,27 @@
+{
+    "colegioEsplanadaApp": {
+        "turma" : {
+            "home": {
+                "title": "Turmas",
+                "createLabel": "Δημιουργήστε ένα νέο Turma",
+                "createOrEditLabel": "Δημιουργήστε η επεξεργαστείτε ένα Turma",
+                "search": "Αναζήτηση για Turma"
+            },
+            "created": "Ένα νέο Turma έχει δημιουργηθεί με αναγνωριστικό {{ param }}",
+            "updated": "Ένα Turma έχει ενημερωθεί με αναγνωριστικό {{ param }}",
+            "deleted": "Ένα Turma έχει διαγραφτεί με αναγνωριστικό {{ param }}",
+            "delete": {
+                "question": "Είστε βέβαιοι όταν θέλετε να διαγράψετε το ακόλουθο Turma {{ id }};"
+            },
+            "detail": {
+                "title": "Turma"
+            },
+            "nome": "Nome",
+            "dataCadastro": "Data Cadastro",
+            "nota": "Nota",
+            "frequencia": "Frequencia",
+            "atividades": "Atividades",
+            "turma": "Turma"
+        }
+    }
+}

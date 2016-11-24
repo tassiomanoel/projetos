@@ -1,0 +1,28 @@
+{
+    "colegioEsplanadaApp": {
+        "professor" : {
+            "home": {
+                "title": "Professors",
+                "createLabel": "Pridať Professor",
+                "createOrEditLabel": "Pridať alebo upraviť Professor",
+                "search": "Vyhľadať Professor"
+            },
+            "created": "Bol vytvorený potomok entity Professor s identifikátorom {{ param }}",
+            "updated": "Potomok entity Professor s identifikátorom {{ param }} bol upravený.",
+            "deleted": "Potomok entity Professor s identifikátorom {{ param }} bol vymazaný.",
+            "delete": {
+                "question": "Ste si istý, že chcete vymazať Professor {{ id }}?"
+            },
+            "detail": {
+                "title": "Professor"
+            },
+            "nome": "Nome",
+            "anotacao": "Anotacao",
+            "atividade": "Atividade",
+            "upload": "Upload",
+            "professorGestor": "Professor Gestor",
+            "professorTurma": "Professor Turma",
+            "professorAluno": "Professor Aluno"
+        }
+    }
+}
