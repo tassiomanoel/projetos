@@ -27,126 +27,102 @@ public class Professor implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "anotacao")
-    private String anotacao;
+    @Column(name = "ocorrencia")
+    private String ocorrencia;
 
     @Column(name = "atividade")
     private String atividade;
 
     @Column(name = "upload")
     private String upload;
+    
+    @Column(name = "email")
+    private String email;
 
     @ManyToOne
-    private Gestor professorGestor;
+    private Gestor gestor;
 
     @ManyToOne
-    private Turma professorTurma;
+    private Turma turma;
 
-    @OneToMany(mappedBy = "aluno")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "professor")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Aluno> professorAlunos = new HashSet<>();
+    private Set<Aluno> alunos = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public Professor nome(String nome) {
-        this.nome = nome;
-        return this;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getOcorrencia() {
+		return ocorrencia;
+	}
 
-    public String getAnotacao() {
-        return anotacao;
-    }
+	public void setOcorrencia(String ocorrencia) {
+		this.ocorrencia = ocorrencia;
+	}
 
-    public Professor anotacao(String anotacao) {
-        this.anotacao = anotacao;
-        return this;
-    }
+	public String getAtividade() {
+		return atividade;
+	}
 
-    public void setAnotacao(String anotacao) {
-        this.anotacao = anotacao;
-    }
+	public void setAtividade(String atividade) {
+		this.atividade = atividade;
+	}
 
-    public String getAtividade() {
-        return atividade;
-    }
+	public String getUpload() {
+		return upload;
+	}
 
-    public Professor atividade(String atividade) {
-        this.atividade = atividade;
-        return this;
-    }
+	public void setUpload(String upload) {
+		this.upload = upload;
+	}
 
-    public void setAtividade(String atividade) {
-        this.atividade = atividade;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getUpload() {
-        return upload;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Professor upload(String upload) {
-        this.upload = upload;
-        return this;
-    }
+	public Gestor getGestor() {
+		return gestor;
+	}
 
-    public void setUpload(String upload) {
-        this.upload = upload;
-    }
+	public void setGestor(Gestor gestor) {
+		this.gestor = gestor;
+	}
 
-    public Gestor getProfessorGestor() {
-        return professorGestor;
-    }
+	public Turma getTurma() {
+		return turma;
+	}
 
-    public Professor professorGestor(Gestor gestor) {
-        this.professorGestor = gestor;
-        return this;
-    }
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
 
-    public void setProfessorGestor(Gestor gestor) {
-        this.professorGestor = gestor;
-    }
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
 
-    public Turma getProfessorTurma() {
-        return professorTurma;
-    }
+	public void setAlunos(Set<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 
-    public Professor professorTurma(Turma turma) {
-        this.professorTurma = turma;
-        return this;
-    }
-
-    public void setProfessorTurma(Turma turma) {
-        this.professorTurma = turma;
-    }
-
-    public Set<Aluno> getProfessorAlunos() {
-        return professorAlunos;
-    }
-
-    public Professor professorAlunos(Set<Aluno> alunos) {
-        this.professorAlunos = alunos;
-        return this;
-    }
-
-    public void setProfessorAlunos(Set<Aluno> alunos) {
-        this.professorAlunos = alunos;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -171,7 +147,7 @@ public class Professor implements Serializable {
         return "Professor{" +
             "id=" + id +
             ", nome='" + nome + "'" +
-            ", anotacao='" + anotacao + "'" +
+            ", ocorrencia='" + ocorrencia + "'" +
             ", atividade='" + atividade + "'" +
             ", upload='" + upload + "'" +
             '}';

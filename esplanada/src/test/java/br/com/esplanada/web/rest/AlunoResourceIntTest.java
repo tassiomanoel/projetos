@@ -85,12 +85,12 @@ public class AlunoResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Aluno createEntity(EntityManager em) {
-        Aluno aluno = new Aluno()
-                .nome(DEFAULT_NOME)
-                .frequencia(DEFAULT_FREQUENCIA)
-                .nota(DEFAULT_NOTA)
-                .atividades(DEFAULT_ATIVIDADES)
-                .dataCadastro(DEFAULT_DATA_CADASTRO);
+        Aluno aluno = new Aluno();
+//                .nome(DEFAULT_NOME)
+//                .frequencia(DEFAULT_FREQUENCIA)
+//                .nota(DEFAULT_NOTA)
+//                .atividades(DEFAULT_ATIVIDADES)
+//                .cadastro(DEFAULT_DATA_CADASTRO);
         return aluno;
     }
 
@@ -119,7 +119,7 @@ public class AlunoResourceIntTest {
         assertThat(testAluno.getFrequencia()).isEqualTo(DEFAULT_FREQUENCIA);
         assertThat(testAluno.getNota()).isEqualTo(DEFAULT_NOTA);
         assertThat(testAluno.getAtividades()).isEqualTo(DEFAULT_ATIVIDADES);
-        assertThat(testAluno.getDataCadastro()).isEqualTo(DEFAULT_DATA_CADASTRO);
+        assertThat(testAluno.getCadastro()).isEqualTo(DEFAULT_DATA_CADASTRO);
     }
 
     @Test
@@ -175,12 +175,12 @@ public class AlunoResourceIntTest {
 
         // Update the aluno
         Aluno updatedAluno = alunoRepository.findOne(aluno.getId());
-        updatedAluno
-                .nome(UPDATED_NOME)
-                .frequencia(UPDATED_FREQUENCIA)
-                .nota(UPDATED_NOTA)
-                .atividades(UPDATED_ATIVIDADES)
-                .dataCadastro(UPDATED_DATA_CADASTRO);
+//        updatedAluno
+//                .nome(UPDATED_NOME)
+//                .frequencia(UPDATED_FREQUENCIA)
+//                .nota(UPDATED_NOTA)
+//                .atividades(UPDATED_ATIVIDADES)
+//                .dataCadastro(UPDATED_DATA_CADASTRO);
 
         restAlunoMockMvc.perform(put("/api/alunos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -195,7 +195,7 @@ public class AlunoResourceIntTest {
         assertThat(testAluno.getFrequencia()).isEqualTo(UPDATED_FREQUENCIA);
         assertThat(testAluno.getNota()).isEqualTo(UPDATED_NOTA);
         assertThat(testAluno.getAtividades()).isEqualTo(UPDATED_ATIVIDADES);
-        assertThat(testAluno.getDataCadastro()).isEqualTo(UPDATED_DATA_CADASTRO);
+        assertThat(testAluno.getCadastro()).isEqualTo(UPDATED_DATA_CADASTRO);
     }
 
     @Test

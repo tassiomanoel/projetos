@@ -1,15 +1,24 @@
 package br.com.esplanada.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Gestor.
@@ -31,111 +40,103 @@ public class Gestor implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "idade", precision=10, scale=2)
-    private BigDecimal idade;
+    @Column(name = "nascimento")
+    private Date nascimento;
+    
+    @Column(name = "cadastro")
+    private Date cadastro;
+    
+    @Column(name = "formado")
+    private String formado;
 
-    @OneToMany(mappedBy = "gestorTurma")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Turma> turmas = new HashSet<>();
 
-    @OneToMany(mappedBy = "gestorProfessor")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Professor> professors = new HashSet<>();
+    private Set<Professor> professores = new HashSet<>();
 
-    @OneToMany(mappedBy = "gestorAluno")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Aluno> alunos = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public Gestor nome(String nome) {
-        this.nome = nome;
-        return this;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Gestor email(String email) {
-        this.email = email;
-        return this;
-    }
+	public Date getNascimento() {
+		return nascimento;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
 
-    public BigDecimal getIdade() {
-        return idade;
-    }
+	public Date getCadastro() {
+		return cadastro;
+	}
 
-    public Gestor idade(BigDecimal idade) {
-        this.idade = idade;
-        return this;
-    }
+	public void setCadastro(Date cadastro) {
+		this.cadastro = cadastro;
+	}
 
-    public void setIdade(BigDecimal idade) {
-        this.idade = idade;
-    }
+	public Set<Turma> getTurmas() {
+		return turmas;
+	}
 
-    public Set<Turma> getTurmas() {
-        return turmas;
-    }
+	public void setTurmas(Set<Turma> turmas) {
+		this.turmas = turmas;
+	}
 
-    public Gestor turmas(Set<Turma> turmas) {
-        this.turmas = turmas;
-        return this;
-    }
+	public Set<Professor> getProfessores() {
+		return professores;
+	}
 
-    public void setTurmas(Set<Turma> turmas) {
-        this.turmas = turmas;
-    }
+	public void setProfessores(Set<Professor> professores) {
+		this.professores = professores;
+	}
 
-    public Set<Professor> getProfessors() {
-        return professors;
-    }
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
 
-    public Gestor professors(Set<Professor> professors) {
-        this.professors = professors;
-        return this;
-    }
+	public void setAlunos(Set<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 
-    public void setProfessors(Set<Professor> professors) {
-        this.professors = professors;
-    }
+	public String getFormado() {
+		return formado;
+	}
 
-    public Set<Aluno> getAlunos() {
-        return alunos;
-    }
+	public void setFormado(String formado) {
+		this.formado = formado;
+	}
 
-    public Gestor alunos(Set<Aluno> alunos) {
-        this.alunos = alunos;
-        return this;
-    }
-
-    public void setAlunos(Set<Aluno> alunos) {
-        this.alunos = alunos;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -161,7 +162,8 @@ public class Gestor implements Serializable {
             "id=" + id +
             ", nome='" + nome + "'" +
             ", email='" + email + "'" +
-            ", idade='" + idade + "'" +
+            ", idade='" + cadastro + "'" +
+            ", nascimento='" + nascimento + "'" +
             '}';
     }
 }
