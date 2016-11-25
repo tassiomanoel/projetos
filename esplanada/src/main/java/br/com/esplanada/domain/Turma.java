@@ -1,12 +1,25 @@
 package br.com.esplanada.domain;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Turma.
@@ -25,108 +38,104 @@ public class Turma implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "data_cadastro", precision=10, scale=2)
-    private BigDecimal dataCadastro;
+    @Column(name = "quantidade")
+    private Integer quantidade;
 
-    @Column(name = "nota")
-    private String nota;
+    @Column(name = "notaTurma")
+    private Integer notaTurma;
 
-    @Column(name = "frequencia")
-    private String frequencia;
+    @Column(name = "frequenciaTurma")
+    private Integer frequenciaTurma;
+    
+    @Column(name = "cadastro")
+    private Date cadastro;
 
-    @Column(name = "atividades")
-    private String atividades;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "turma")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Professor> professores = new HashSet<>();
 
     @ManyToOne
     private Gestor gestor;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "turma")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Aluno> alunos = new HashSet<>();
+    
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public Turma nome(String nome) {
-        this.nome = nome;
-        return this;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Integer getQuantidade() {
+		return quantidade;
+	}
 
-    public BigDecimal getDataCadastro() {
-        return dataCadastro;
-    }
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
 
-    public Turma dataCadastro(BigDecimal dataCadastro) {
-        this.dataCadastro = dataCadastro;
-        return this;
-    }
+	public Integer getNotaTurma() {
+		return notaTurma;
+	}
 
-    public void setDataCadastro(BigDecimal dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
+	public void setNotaTurma(Integer notaTurma) {
+		this.notaTurma = notaTurma;
+	}
 
-    public String getNota() {
-        return nota;
-    }
+	public Integer getFrequenciaTurma() {
+		return frequenciaTurma;
+	}
 
-    public Turma nota(String nota) {
-        this.nota = nota;
-        return this;
-    }
+	public void setFrequenciaTurma(Integer frequenciaTurma) {
+		this.frequenciaTurma = frequenciaTurma;
+	}
 
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
+	public Set<Professor> getProfessores() {
+		return professores;
+	}
 
-    public String getFrequencia() {
-        return frequencia;
-    }
+	public void setProfessores(Set<Professor> professores) {
+		this.professores = professores;
+	}
 
-    public Turma frequencia(String frequencia) {
-        this.frequencia = frequencia;
-        return this;
-    }
+	public Gestor getGestor() {
+		return gestor;
+	}
 
-    public void setFrequencia(String frequencia) {
-        this.frequencia = frequencia;
-    }
+	public void setGestor(Gestor gestor) {
+		this.gestor = gestor;
+	}
 
-    public String getAtividades() {
-        return atividades;
-    }
+	public Set<Aluno> getAlunos() {
+		return alunos;
+	}
 
-    public Turma atividades(String atividades) {
-        this.atividades = atividades;
-        return this;
-    }
+	public void setAlunos(Set<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+	
+	public Date getCadastro() {
+		return cadastro;
+	}
 
-    public void setAtividades(String atividades) {
-        this.atividades = atividades;
-    }
+	public void setCadastro(Date cadastro) {
+		this.cadastro = cadastro;
+	}
 
-    public Gestor getTurma() {
-        return gestor;
-    }
-
-    public Turma turma(Gestor gestor) {
-        this.gestor = gestor;
-        return this;
-    }
-
-    public void setTurma(Gestor gestor) {
-        this.gestor = gestor;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -151,10 +160,9 @@ public class Turma implements Serializable {
         return "Turma{" +
             "id=" + id +
             ", nome='" + nome + "'" +
-            ", dataCadastro='" + dataCadastro + "'" +
-            ", nota='" + nota + "'" +
-            ", frequencia='" + frequencia + "'" +
-            ", atividades='" + atividades + "'" +
+            ", quantidade='" + quantidade + "'" +
+            ", notaTurma='" + notaTurma + "'" +
+            ", frequenciaTurma='" + frequenciaTurma + "'" +
             '}';
     }
 }

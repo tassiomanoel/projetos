@@ -82,11 +82,11 @@ public class ProfessorResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Professor createEntity(EntityManager em) {
-        Professor professor = new Professor()
-                .nome(DEFAULT_NOME)
-                .anotacao(DEFAULT_ANOTACAO)
-                .atividade(DEFAULT_ATIVIDADE)
-                .upload(DEFAULT_UPLOAD);
+        Professor professor = new Professor();
+//                .nome(DEFAULT_NOME)
+//                .anotacao(DEFAULT_ANOTACAO)
+//                .atividade(DEFAULT_ATIVIDADE)
+//                .upload(DEFAULT_UPLOAD);
         return professor;
     }
 
@@ -112,7 +112,7 @@ public class ProfessorResourceIntTest {
         assertThat(professors).hasSize(databaseSizeBeforeCreate + 1);
         Professor testProfessor = professors.get(professors.size() - 1);
         assertThat(testProfessor.getNome()).isEqualTo(DEFAULT_NOME);
-        assertThat(testProfessor.getAnotacao()).isEqualTo(DEFAULT_ANOTACAO);
+        assertThat(testProfessor.getOcorrencia()).isEqualTo(DEFAULT_ANOTACAO);
         assertThat(testProfessor.getAtividade()).isEqualTo(DEFAULT_ATIVIDADE);
         assertThat(testProfessor.getUpload()).isEqualTo(DEFAULT_UPLOAD);
     }
@@ -168,11 +168,11 @@ public class ProfessorResourceIntTest {
 
         // Update the professor
         Professor updatedProfessor = professorRepository.findOne(professor.getId());
-        updatedProfessor
-                .nome(UPDATED_NOME)
-                .anotacao(UPDATED_ANOTACAO)
-                .atividade(UPDATED_ATIVIDADE)
-                .upload(UPDATED_UPLOAD);
+//        updatedProfessor
+//                .nome(UPDATED_NOME)
+//                .anotacao(UPDATED_ANOTACAO)
+//                .atividade(UPDATED_ATIVIDADE)
+//                .upload(UPDATED_UPLOAD);
 
         restProfessorMockMvc.perform(put("/api/professors")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -184,7 +184,7 @@ public class ProfessorResourceIntTest {
         assertThat(professors).hasSize(databaseSizeBeforeUpdate);
         Professor testProfessor = professors.get(professors.size() - 1);
         assertThat(testProfessor.getNome()).isEqualTo(UPDATED_NOME);
-        assertThat(testProfessor.getAnotacao()).isEqualTo(UPDATED_ANOTACAO);
+        assertThat(testProfessor.getOcorrencia()).isEqualTo(UPDATED_ANOTACAO);
         assertThat(testProfessor.getAtividade()).isEqualTo(UPDATED_ATIVIDADE);
         assertThat(testProfessor.getUpload()).isEqualTo(UPDATED_UPLOAD);
     }

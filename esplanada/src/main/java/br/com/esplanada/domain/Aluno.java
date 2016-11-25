@@ -1,14 +1,19 @@
 package br.com.esplanada.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
 
 /**
  * A Aluno.
@@ -26,145 +31,112 @@ public class Aluno implements Serializable {
 
     @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "frequencia")
-    private String frequencia;
+    private Integer frequencia;
 
     @Column(name = "nota")
-    private String nota;
+    private Integer nota;
 
     @Column(name = "atividades")
     private String atividades;
 
-    @Column(name = "data_cadastro")
-    private String dataCadastro;
-
-    @OneToMany(mappedBy = "gestor")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Turma> alunoTurmas = new HashSet<>();
+    @Column(name = "cadastro")
+    private Date cadastro;
 
     @ManyToOne
-    private Gestor alunoGestor;
+    private Turma turma;
 
-    @OneToMany(mappedBy = "professor")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Professor> alunoProfessors = new HashSet<>();
+    @ManyToOne
+    private Gestor gestor;
+    
+    @ManyToOne
+    private Professor professor;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public Aluno nome(String nome) {
-        this.nome = nome;
-        return this;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Integer getFrequencia() {
+		return frequencia;
+	}
 
-    public String getFrequencia() {
-        return frequencia;
-    }
+	public void setFrequencia(Integer frequencia) {
+		this.frequencia = frequencia;
+	}
 
-    public Aluno frequencia(String frequencia) {
-        this.frequencia = frequencia;
-        return this;
-    }
+	public Integer getNota() {
+		return nota;
+	}
 
-    public void setFrequencia(String frequencia) {
-        this.frequencia = frequencia;
-    }
+	public void setNota(Integer nota) {
+		this.nota = nota;
+	}
 
-    public String getNota() {
-        return nota;
-    }
+	public String getAtividades() {
+		return atividades;
+	}
 
-    public Aluno nota(String nota) {
-        this.nota = nota;
-        return this;
-    }
+	public void setAtividades(String atividades) {
+		this.atividades = atividades;
+	}
 
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
+	public Date getCadastro() {
+		return cadastro;
+	}
 
-    public String getAtividades() {
-        return atividades;
-    }
+	public void setCadastro(Date cadastro) {
+		this.cadastro = cadastro;
+	}
 
-    public Aluno atividades(String atividades) {
-        this.atividades = atividades;
-        return this;
-    }
+	public Turma getTurma() {
+		return turma;
+	}
 
-    public void setAtividades(String atividades) {
-        this.atividades = atividades;
-    }
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
 
-    public String getDataCadastro() {
-        return dataCadastro;
-    }
+	public Gestor getGestor() {
+		return gestor;
+	}
 
-    public Aluno dataCadastro(String dataCadastro) {
-        this.dataCadastro = dataCadastro;
-        return this;
-    }
+	public void setGestor(Gestor gestor) {
+		this.gestor = gestor;
+	}
 
-    public void setDataCadastro(String dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
+	public Professor getProfessor() {
+		return professor;
+	}
 
-    public Set<Turma> getAlunoTurmas() {
-        return alunoTurmas;
-    }
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 
-    public Aluno alunoTurmas(Set<Turma> turmas) {
-        this.alunoTurmas = turmas;
-        return this;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setAlunoTurmas(Set<Turma> turmas) {
-        this.alunoTurmas = turmas;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Gestor getAlunoGestor() {
-        return alunoGestor;
-    }
-
-    public Aluno alunoGestor(Gestor gestor) {
-        this.alunoGestor = gestor;
-        return this;
-    }
-
-    public void setAlunoGestor(Gestor gestor) {
-        this.alunoGestor = gestor;
-    }
-
-    public Set<Professor> getAlunoProfessors() {
-        return alunoProfessors;
-    }
-
-    public Aluno alunoProfessors(Set<Professor> professors) {
-        this.alunoProfessors = professors;
-        return this;
-    }
-
-    public void setAlunoProfessors(Set<Professor> professors) {
-        this.alunoProfessors = professors;
-    }
-
-    @Override
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -192,7 +164,7 @@ public class Aluno implements Serializable {
             ", frequencia='" + frequencia + "'" +
             ", nota='" + nota + "'" +
             ", atividades='" + atividades + "'" +
-            ", dataCadastro='" + dataCadastro + "'" +
+            ", cadastro='" + cadastro + "'" +
             '}';
     }
 }

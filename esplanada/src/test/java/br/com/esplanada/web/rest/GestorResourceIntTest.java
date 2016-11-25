@@ -80,10 +80,10 @@ public class GestorResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Gestor createEntity(EntityManager em) {
-        Gestor gestor = new Gestor()
-                .nome(DEFAULT_NOME)
-                .email(DEFAULT_EMAIL)
-                .idade(DEFAULT_IDADE);
+        Gestor gestor = new Gestor();
+//                .nome(DEFAULT_NOME)
+//                .email(DEFAULT_EMAIL)
+//                .idade(DEFAULT_IDADE);
         return gestor;
     }
 
@@ -110,7 +110,7 @@ public class GestorResourceIntTest {
         Gestor testGestor = gestors.get(gestors.size() - 1);
         assertThat(testGestor.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testGestor.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testGestor.getIdade()).isEqualTo(DEFAULT_IDADE);
+        assertThat(testGestor.getCadastro()).isEqualTo(DEFAULT_IDADE);
     }
 
     @Test
@@ -162,10 +162,10 @@ public class GestorResourceIntTest {
 
         // Update the gestor
         Gestor updatedGestor = gestorRepository.findOne(gestor.getId());
-        updatedGestor
-                .nome(UPDATED_NOME)
-                .email(UPDATED_EMAIL)
-                .idade(UPDATED_IDADE);
+//        updatedGestor
+//                .nome(UPDATED_NOME)
+//                .email(UPDATED_EMAIL)
+//                .idade(UPDATED_IDADE);
 
         restGestorMockMvc.perform(put("/api/gestors")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -178,7 +178,7 @@ public class GestorResourceIntTest {
         Gestor testGestor = gestors.get(gestors.size() - 1);
         assertThat(testGestor.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testGestor.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testGestor.getIdade()).isEqualTo(UPDATED_IDADE);
+        assertThat(testGestor.getCadastro()).isEqualTo(UPDATED_IDADE);
     }
 
     @Test
