@@ -19,13 +19,17 @@
     
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+    
+    <link rel="shortcut icon" href="content/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="content/images/favicon.ico" type="image/x-icon">
+	
+	<link rel="stylesheet" href="content/css/fonts/font-awesome.min.css">
     <!-- endbuild -->
 </head>
 <body ng-app="colegioEsplanadaApp" ng-strict-di>
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
     
     <div class="container">
@@ -33,7 +37,7 @@
             <!-- Angular views -->
         </div>
 
-        <div class="footer" ng-cloak>
+        <div class="footer" ng-cloak style="float:right">
             <p data-translate="footer">This is your footer</p>
         </div>
         

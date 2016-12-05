@@ -21,7 +21,8 @@
             "nota": "Nota",
             "frequencia": "Frequencia",
             "atividades": "Atividades",
-            "turma": "Turma"
+            "turma": "Turma",
+            "disciplina" : "Disciplina"
         }
     }
 }

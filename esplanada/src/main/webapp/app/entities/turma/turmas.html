@@ -20,11 +20,7 @@
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="colegioEsplanadaApp.turma.nome">Nome</span></th>
-                    <th><span data-translate="colegioEsplanadaApp.turma.dataCadastro">Data Cadastro</span></th>
-                    <th><span data-translate="colegioEsplanadaApp.turma.nota">Nota</span></th>
-                    <th><span data-translate="colegioEsplanadaApp.turma.frequencia">Frequencia</span></th>
-                    <th><span data-translate="colegioEsplanadaApp.turma.atividades">Atividades</span></th>
-                    <th><span data-translate="colegioEsplanadaApp.turma.turma">Turma</span></th>
+                    <th><span data-translate="colegioEsplanadaApp.turma.disciplina">Disciplina</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -32,9 +28,6 @@
                 <tr ng-repeat="turma in vm.turmas track by turma.id">
                     <td><a ui-sref="turma-detail({id:turma.id})">{{turma.id}}</a></td>
                     <td>{{turma.nome}}</td>
-                    <td>{{turma.dataCadastro}}</td>
-                    <td>{{turma.nota}}</td>
-                    <td>{{turma.frequencia}}</td>
                     <td>{{turma.atividades}}</td>
                     <td>
                         <a ui-sref="gestor-detail({id:turma.turma.id})">{{turma.turma.id}}</a>
