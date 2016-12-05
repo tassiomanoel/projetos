@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="content/css/vendor.css">
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
-    <link rel="stylesheet" href="content/css/main.css">
+<!--     <link rel="stylesheet" href="content/css/main.css"> -->
+    
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css">
     <!-- endbuild -->
 </head>
 <body ng-app="colegioEsplanadaApp" ng-strict-di>
@@ -24,6 +27,7 @@
     <![endif]-->
     <page-ribbon></page-ribbon>
     <div ui-view="navbar" ng-cloak></div>
+    
     <div class="container">
         <div class="well" ui-view="content">
             <!-- Angular views -->
@@ -32,6 +36,7 @@
         <div class="footer" ng-cloak>
             <p data-translate="footer">This is your footer</p>
         </div>
+        
     </div>
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
@@ -67,6 +72,10 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -157,11 +166,11 @@
     <script src="app/blocks/config/alert.config.js"></script>
     <script src="app/app.state.js"></script>
     <script src="app/app.constants.js"></script>
-    <script src="app/admin/user-management/user-management-dialog.controller.js"></script>
-    <script src="app/admin/user-management/user-management-detail.controller.js"></script>
-    <script src="app/admin/user-management/user-management-delete-dialog.controller.js"></script>
-    <script src="app/admin/user-management/user-management.state.js"></script>
-    <script src="app/admin/user-management/user-management.controller.js"></script>
+    <script src="app/admin/usuario/usuario-dialog.controller.js"></script>
+    <script src="app/admin/usuario/usuario-detail.controller.js"></script>
+    <script src="app/admin/usuario/usuario-delete-dialog.controller.js"></script>
+    <script src="app/admin/usuario/usuario.state.js"></script>
+    <script src="app/admin/usuario/usuario.controller.js"></script>
     <script src="app/admin/metrics/metrics.state.js"></script>
     <script src="app/admin/metrics/metrics.service.js"></script>
     <script src="app/admin/metrics/metrics.modal.controller.js"></script>

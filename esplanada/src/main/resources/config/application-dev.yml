@@ -31,8 +31,8 @@ spring:
     mail:
         host: smtp.gmail.com
         port: 587
-        username: tassio.silva@b2t.com.br
-        password: tacinhu2
+        username: colegioesplanadarr@gmail.com
+        password: esplanada123
         protocol: smtp
         tls: true
         properties.mail.smtp:

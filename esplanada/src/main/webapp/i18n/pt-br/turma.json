@@ -3,7 +3,7 @@
         "turma" : {
             "home": {
                 "title": "Turmas",
-                "createLabel": "Criar novo Turma",
+                "createLabel": "Nova Turma",
                 "createOrEditLabel": "Criar ou editar Turma",
                 "search": "Pesquisar por Turma"
             },
