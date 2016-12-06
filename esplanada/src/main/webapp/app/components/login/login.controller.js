@@ -5,20 +5,21 @@
         .module('colegioEsplanadaApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
+    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$scope'];
 
-    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $timeout, Auth, $scope) {
         var vm = this;
 
         vm.authenticationError = false;
         vm.cancel = cancel;
         vm.credentials = {};
-        vm.login = login;
+//        vm.login = login;
         vm.password = null;
         vm.register = register;
         vm.rememberMe = true;
         vm.requestResetPassword = requestResetPassword;
         vm.username = null;
+        $scope.usuario = {};
 
         $timeout(function (){angular.element('#username').focus();});
 
@@ -29,23 +30,24 @@
                 rememberMe: true
             };
             vm.authenticationError = false;
-            $uibModalInstance.dismiss('cancel');
+//            $uibModalInstance.dismiss('cancel');
         }
 
-        function login (event) {
+        $rootScope.login = function(event) {
             event.preventDefault();
+            $scope.usuario;
+            vm.username = $scope.usuario.nome;
+            vm.password = $scope.usuario.senha;
             Auth.login({
                 username: vm.username,
                 password: vm.password,
                 rememberMe: vm.rememberMe
             }).then(function () {
                 vm.authenticationError = false;
-                $uibModalInstance.close();
                 if ($state.current.name === 'register' || $state.current.name === 'activate' ||
-                    $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
+                    $state.current.name === 'finishReset' || $state.current.name === 'requestReset' || $state.current.name === 'login') {
                     $state.go('home');
                 }
-
                 $rootScope.$broadcast('authenticationSuccess');
 
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
@@ -61,13 +63,17 @@
         }
 
         function register () {
-            $uibModalInstance.dismiss('cancel');
+//            $uibModalInstance.dismiss('cancel');
             $state.go('register');
         }
 
         function requestResetPassword () {
-            $uibModalInstance.dismiss('cancel');
+//            $uibModalInstance.dismiss('cancel');
             $state.go('requestReset');
+        }
+        
+        $rootScope.teste = function(){
+        	alert('gteste');
         }
     }
 })();

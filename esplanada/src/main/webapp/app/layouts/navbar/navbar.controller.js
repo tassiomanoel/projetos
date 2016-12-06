@@ -32,7 +32,7 @@
         function logout() {
             collapseNavbar();
             Auth.logout();
-            $state.go('home');
+            $state.go('login');
         }
 
         function toggleNavbar() {
@@ -42,5 +42,10 @@
         function collapseNavbar() {
             vm.isNavbarCollapsed = true;
         }
+        
+//        Principal.identity().then(function(account) {
+//            vm.account = account;
+//            vm.isAuthenticated = Principal.isAuthenticated;
+//        });
     }
 })();
