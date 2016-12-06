@@ -18,16 +18,13 @@
                      />
         </div>
         <div class="form-group">
-<!--             <label class="control-label" data-translate="colegioEsplanadaApp.turma.disciplina" for="field_atividades">Disciplina</label> -->
-<!--             <input type="text" class="form-control" name="atividades" id="field_atividades" -->
-<!--                     ng-model="vm.turma.atividades" -->
-<!--                      /> -->
 			<label class="control-label" data-translate="colegioEsplanadaApp.turma.disciplina" for="field_atividades">Disciplina</label>
- 			<select class="form-control" name="disciplina" ng-model="vm.user.disciplina"
-                    ng-options="disciplina as disciplina for disciplina in vm.disciplinas">
-            </select>
+            <md-select name="disciplina" ng-model="vm.turma.disciplina">
+				<md-option ng-repeat="disciplina in vm.disciplinas" ng-value="disciplina" >
+					{{disciplina}}
+				</md-option>
+			</md-select>
         </div>
-
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ui-sref="turma" style="float:left">

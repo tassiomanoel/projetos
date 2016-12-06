@@ -5,9 +5,9 @@
         .module('colegioEsplanadaApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$rootScope'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope, Principal, LoginService, $state, $rootScope) {
         var vm = this;
 
         vm.account = null;
@@ -29,5 +29,7 @@
         function register () {
             $state.go('register');
         }
+        
+        $scope.authority = Principal.hasAnyRole();
     }
 })();

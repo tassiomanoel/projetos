@@ -1,17 +1,18 @@
 package br.com.esplanada.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -20,12 +21,12 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * A Turma.
+ * A TurmaAluno.
  */
 @Entity
-@Table(name = "turma")
+@Table(name = "turma_aluno")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Turma implements Serializable {
+public class TurmaAluno implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,16 +34,23 @@ public class Turma implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "nome")
-    private String nome;
-
-    @Column(name = "disciplina")
-    private String disciplina;
+    @ManyToOne
+    private User usuario;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "turma")
+    
     @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+        name = "usuario",
+        joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private List<TurmaAluno> turmaAlunos = new ArrayList<>();
+    private Set<User> usuarios = new HashSet<>();
+    
+    
+    @ManyToOne
+    private Turma turma;
+
     
 	public Long getId() {
 		return id;
@@ -52,29 +60,20 @@ public class Turma implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public User getUsuario() {
+		return usuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
 	}
 
-
-	public String getDisciplina() {
-		return disciplina;
+	public Turma getTurma() {
+		return turma;
 	}
 
-	public void setDisciplina(String disciplina) {
-		this.disciplina = disciplina;
-	}
-
-	public List<TurmaAluno> getTurmaAlunos() {
-		return turmaAlunos;
-	}
-
-	public void setTurmaAlunos(List<TurmaAluno> turmaAlunos) {
-		this.turmaAlunos = turmaAlunos;
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 
 	@Override
@@ -85,7 +84,7 @@ public class Turma implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Turma turma = (Turma) o;
+        TurmaAluno turma = (TurmaAluno) o;
         if(turma.id == null || id == null) {
             return false;
         }
@@ -97,12 +96,5 @@ public class Turma implements Serializable {
         return Objects.hashCode(id);
     }
 
-    @Override
-    public String toString() {
-        return "Turma{" +
-            "id=" + id +
-            ", nome='" + nome + "'" +
-            ", disciplina='" + disciplina + "'" +
-            '}';
-    }
+    
 }

@@ -22,7 +22,10 @@
             "frequencia": "Frequencia",
             "atividades": "Atividades",
             "turma": "Turma",
-            "disciplina" : "Disciplina"
+            "disciplina" : "Disciplina",
+            "aluno": "Alunos",
+            "associar" : "Associar alunos",
+            "inserir" : "Inserir alunos"
         }
     }
 }

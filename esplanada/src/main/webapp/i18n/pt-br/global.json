@@ -35,7 +35,9 @@
                 "database": "Banco de dados",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)",
                 "turma":"Turmas",
-                "relatorio":"Relatórios"
+                "relatorio":"Relatórios",
+                "frequencia" : "Frequência / Nota",
+                "atividades" : "Atividades"
             },
             "language": "Idioma"
         },

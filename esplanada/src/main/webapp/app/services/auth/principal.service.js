@@ -17,7 +17,8 @@
             hasAuthority: hasAuthority,
             identity: identity,
             isAuthenticated: isAuthenticated,
-            isIdentityResolved: isIdentityResolved
+            isIdentityResolved: isIdentityResolved,
+            hasAnyRole: hasAnyRole
         };
 
         return service;
@@ -94,6 +95,13 @@
 
         function isIdentityResolved () {
             return angular.isDefined(_identity);
+        }
+        
+        function hasAnyRole(){
+        	if (!_authenticated || !_identity || !_identity.authorities) {
+                return undefined;
+            }
+        	return _identity.authorities[0];
         }
     }
 })();

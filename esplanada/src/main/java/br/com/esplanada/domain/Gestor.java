@@ -52,11 +52,6 @@ public class Gestor implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Turma> turmas = new HashSet<>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Professor> professores = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gestor")
@@ -102,14 +97,6 @@ public class Gestor implements Serializable {
 
 	public void setCadastro(Date cadastro) {
 		this.cadastro = cadastro;
-	}
-
-	public Set<Turma> getTurmas() {
-		return turmas;
-	}
-
-	public void setTurmas(Set<Turma> turmas) {
-		this.turmas = turmas;
 	}
 
 	public Set<Professor> getProfessores() {

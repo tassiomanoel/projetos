@@ -28,27 +28,34 @@
                 <tr ng-repeat="turma in vm.turmas track by turma.id">
                     <td><a ui-sref="turma-detail({id:turma.id})">{{turma.id}}</a></td>
                     <td>{{turma.nome}}</td>
-                    <td>{{turma.atividades}}</td>
+                    <td>{{turma.disciplina}}</td>
                     <td>
                         <a ui-sref="gestor-detail({id:turma.turma.id})">{{turma.turma.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
+                        
+                        	<button type="submit"
+                                    ui-sref="turma.alunos({id:turma.id})"
+                                    class="btn btn-default">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
                             <button type="submit"
                                     ui-sref="turma-detail({id:turma.id})"
-                                    class="btn btn-info btn-sm">
+                                    class="btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="turma.edit({id:turma.id})"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="turma.delete({id:turma.id})"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
                             </button>

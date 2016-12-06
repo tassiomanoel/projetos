@@ -149,6 +149,31 @@
                     $state.go('^');
                 });
             }]
+        })
+        
+        .state('turma.alunos', {
+            parent: 'turma',
+            url: '/{id}/alunos',
+            data: {
+                authorities: ['ROLE_ADMIN']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/turma/turma-associar-dialog.html',
+                    controller: 'TurmaDialogController',
+                    controllerAs: 'vm',
+                    size: 'md',
+                    resolve: {
+                        entity: ['Turma', function(Turma) {
+                            return Turma.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('turma', null, { reload: 'turma' });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         });
     }
 

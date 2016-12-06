@@ -117,9 +117,6 @@ public class TurmaResourceIntTest {
         assertThat(turmas).hasSize(databaseSizeBeforeCreate + 1);
         Turma testTurma = turmas.get(turmas.size() - 1);
         assertThat(testTurma.getNome()).isEqualTo(DEFAULT_NOME);
-        assertThat(testTurma.getCadastro()).isEqualTo(DEFAULT_DATA_CADASTRO);
-        assertThat(testTurma.getNotaTurma()).isEqualTo(DEFAULT_NOTA);
-        assertThat(testTurma.getFrequenciaTurma()).isEqualTo(DEFAULT_FREQUENCIA);
     }
 
     @Test
@@ -192,9 +189,6 @@ public class TurmaResourceIntTest {
         assertThat(turmas).hasSize(databaseSizeBeforeUpdate);
         Turma testTurma = turmas.get(turmas.size() - 1);
         assertThat(testTurma.getNome()).isEqualTo(UPDATED_NOME);
-        assertThat(testTurma.getCadastro()).isEqualTo(UPDATED_DATA_CADASTRO);
-        assertThat(testTurma.getNotaTurma()).isEqualTo(UPDATED_NOTA);
-        assertThat(testTurma.getFrequenciaTurma()).isEqualTo(UPDATED_FREQUENCIA);
     }
 
     @Test
