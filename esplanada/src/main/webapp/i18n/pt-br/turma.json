@@ -4,8 +4,9 @@
             "home": {
                 "title": "Turmas",
                 "createLabel": "Nova Turma",
-                "createOrEditLabel": "Criar ou editar Turma",
-                "search": "Pesquisar por Turma"
+                "createOrEditLabel": "Criar Turma",
+                "search": "Pesquisar por Turma",
+                "editar": "Editar Turma"
             },
             "created": "Um novo Turma é criado com o identificador {{ param }}",
             "updated": "Um Turma é atualizado com o identificador {{ param }}",

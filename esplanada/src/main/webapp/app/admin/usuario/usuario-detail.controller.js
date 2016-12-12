@@ -17,7 +17,16 @@
 
         function load (login) {
             User.get({login: login}, function(result) {
-                vm.user = result;
+                angular.forEach(result.authorities, function(role){
+                	if(role == "ROLE_ADMIN"){
+                		result.authorities[0] = "GESTOR"
+                	} else if(role == "ROLE_USER"){
+                		result.authorities[0] = "ALUNO"
+                	} else {
+                		result.authorities[0] = "PROFESSOR"
+                	}
+                })
+            	vm.user = result;
             });
         }
     }

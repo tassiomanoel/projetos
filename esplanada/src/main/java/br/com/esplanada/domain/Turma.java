@@ -1,9 +1,9 @@
 package br.com.esplanada.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,7 +42,7 @@ public class Turma implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "turma")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private List<TurmaAluno> turmaAlunos = new ArrayList<>();
+    private Set<User> usuarios = new HashSet<>();
     
 	public Long getId() {
 		return id;
@@ -69,12 +69,12 @@ public class Turma implements Serializable {
 		this.disciplina = disciplina;
 	}
 
-	public List<TurmaAluno> getTurmaAlunos() {
-		return turmaAlunos;
+	public Set<User> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setTurmaAlunos(List<TurmaAluno> turmaAlunos) {
-		this.turmaAlunos = turmaAlunos;
+	public void setUsuarios(Set<User> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	@Override

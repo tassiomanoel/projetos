@@ -5,13 +5,11 @@
         .module('colegioEsplanadaApp')
         .controller('TurmaDialogController', TurmaDialogController);
 
-    TurmaDialogController.$inject = ['$timeout', '$scope', '$stateParams', 'User', 'Turma', '$state', '$uibModalInstance', 'TurmaAluno'];
+    TurmaDialogController.$inject = ['$timeout', '$scope', '$stateParams', 'User', 'Turma', '$state', 'TurmaAluno'];
 
-    function TurmaDialogController ($timeout, $scope, $stateParams, User, Turma, $state, $uibModalInstance, TurmaAluno) {
+    function TurmaDialogController ($timeout, $scope, $stateParams, User, Turma, $state, TurmaAluno) {
         var vm = this;
 
-//        vm.turma = entity;
-        vm.clear = clear;
         vm.save = save;
         vm.disciplinas = ['Artes', 'Biologia', 'Educação Física', 'Educação Religiosa', 'Espanhol', 'Filosofia', 'Física', 'Geografia', 'História', 'Inglês', 'Língua Portuguesa', 'Literatura', 'Matemática', 'Química', 'Sociologia'];
         vm.usuarios = [];
@@ -32,10 +30,6 @@
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
-
-        function clear () {
-        	$uibModalInstance.dismiss('cancel');
-        }
 
         function save () {
             vm.isSaving = true;

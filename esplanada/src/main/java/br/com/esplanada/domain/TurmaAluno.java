@@ -37,17 +37,6 @@ public class TurmaAluno implements Serializable {
     @ManyToOne
     private User usuario;
     
-    
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-        name = "usuario",
-        joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-        inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<User> usuarios = new HashSet<>();
-    
-    
     @ManyToOne
     private Turma turma;
 
