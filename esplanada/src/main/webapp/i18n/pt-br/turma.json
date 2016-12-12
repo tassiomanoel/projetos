@@ -26,7 +26,8 @@
             "disciplina" : "Disciplina",
             "aluno": "Alunos",
             "associar" : "Associar alunos",
-            "inserir" : "Inserir alunos"
+            "inserir" : "Inserir alunos", 
+            "aluno" : "Alunos"
         }
     }
 }

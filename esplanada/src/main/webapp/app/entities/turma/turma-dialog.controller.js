@@ -13,12 +13,23 @@
         vm.save = save;
         vm.disciplinas = ['Artes', 'Biologia', 'Educação Física', 'Educação Religiosa', 'Espanhol', 'Filosofia', 'Física', 'Geografia', 'História', 'Inglês', 'Língua Portuguesa', 'Literatura', 'Matemática', 'Química', 'Sociologia'];
         vm.usuarios = [];
+        
+        
+        $scope.gridUsuarios = {};
+		
+		$scope.gridUsuarios.columnDefs = [
+										 {name:'Ação', cellTemplate:'<button type="button" class="btn btn-default btn-sm" ng-click="grid.appScope.removeUser(row);"><span class="glyphicon glyphicon-remove-circle"></span></button>',	width: '100', enableFiltering: false},
+										 {name:'Nome', field : 'login'},
+										];
+										
         User.query(function(usuarios){
         	angular.forEach(usuarios, function(usuario){
         		if(usuario.authorities[0] == 'ROLE_USER'){
         			vm.usuarios.push(usuario);
         		}
         	});
+        	
+        	//$scope.gridUsuarios.data = vm.usuarios;
         })
         
         if($state.current.name == 'turma.edit'){
@@ -70,6 +81,11 @@
         	});
         	
         	TurmaAluno.save(vm.turmaAluno, onSaveSuccess);
+        }
+        
+        $scope.addUsuario = function(){
+        	
+        	$scope.gridUsuarios.data = vm.turma.usuarios.authorities;
         }
     }
 })();

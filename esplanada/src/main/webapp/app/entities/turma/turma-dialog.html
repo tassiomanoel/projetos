@@ -26,6 +26,41 @@
 				</md-option>
 			</md-select>
         </div>
+        
+        
+        <div class="row" >
+			<div class="col-sm-12">
+				<div class="panel-subheading">
+					<div class="panel-subtitle"><h4 class="ng-scope">Associar alunos</h4></div>
+				</div>
+			</div>
+		
+			<div class="col-sm-12 item-manager">
+				<div class="col-sm-12">
+					<div class="row no-margin-left add-item-row">
+						<div class="col-sm-10">
+							<label class="control-label" data-translate="colegioEsplanadaApp.turma.aluno" for="field_alunos">aluno</label>
+				            <md-select name="usuario" ng-model="vm.turma.usuarios">
+								<md-option ng-repeat="usuario in vm.usuarios" ng-value="usuario" >
+									{{usuario.login}}
+								</md-option>
+							</md-select>
+						</div>
+						<div style="float:right;margin-top:45px;">
+							<button type="button" ng-click="addUsuario();" class="btn btn-default" >
+								<i class="glyphicon glyphicon-plus text-success"></i> <span class="text-success"> Adicionar</span>
+							</button>
+						</div>
+					</div>
+	
+					<div class="col-sm-12" >
+						<div class="row" style="margin: 15px !important; display: inline;">
+							<div id="grid1" ui-grid="gridUsuarios" class="grid no-padding-bottom"></div>
+						</div>
+					</div>
+			</div>
+		</div>
+        
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ui-sref="turma" style="float:left">
@@ -36,3 +71,19 @@
         </button>
     </div>
 </form>
+
+
+
+<script type="text/ng-template" id="buttons.html">
+		<div class="show-on-row-hover action-buttons-cell">
+			<a type="submit" ui-sref="case.show({id:row.entity.id})" class="btn btn-link btn-xs btn-ui-grid-xs" title="Visualizar">
+				<span class="glyphicon glyphicon-eye-open text-info"></span>
+			</a>
+			
+			<span has-any-role="ROLE_ADMIN, ROLE_ADMIN_NACIONAL, ROLE_ADMIN_REGIONAL">
+				<button type="submit" ng-click="grid.appScope.delete(row.entity.id)" class="btn btn-link btn-xs btn-ui-grid-xs" title="Excluir">
+					<span class="glyphicon glyphicon-trash text-danger"></span>
+				</button>
+			</span>
+		</div>
+	</script>
