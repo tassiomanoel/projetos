@@ -92,6 +92,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     
     @JsonIgnore
     @ManyToOne
+    @JoinColumn(name="turma_id")
     private Turma turma;
 
     public Long getId() {

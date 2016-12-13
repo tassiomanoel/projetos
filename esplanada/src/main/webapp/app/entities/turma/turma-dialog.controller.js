@@ -44,11 +44,12 @@
 
         function save () {
             vm.isSaving = true;
-            vm.turma.turmaAlunos = {};
-            vm.turma.turmaAlunos.usuario = {};
-            vm.turma.turmaAlunos.turma = {};
-            angular.forEach(vm.turma.alunos, function(user){
-            	//vm.turma.turmaAlunos.usuario = user;
+            var int = 0;
+            angular.forEach(vm.turma.usuarios, function(user){
+            	var usuario = {};
+            	usuario.id = user;
+            	vm.turma.usuarios[int] = usuario;
+            	int++;
             });
             
             if (vm.turma.id !== null) {

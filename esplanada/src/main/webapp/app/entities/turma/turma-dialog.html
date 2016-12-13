@@ -38,26 +38,32 @@
 			<div class="col-sm-12 item-manager">
 				<div class="col-sm-12">
 					<div class="row no-margin-left add-item-row">
-						<div class="col-sm-10">
+						<div class="col-sm-14">
 							<label class="control-label" data-translate="colegioEsplanadaApp.turma.aluno" for="field_alunos">aluno</label>
-				            <md-select name="usuario" ng-model="vm.turma.usuarios">
-								<md-option ng-repeat="usuario in vm.usuarios" ng-value="usuario" >
-									{{usuario.login}}
-								</md-option>
-							</md-select>
+<!-- 				            <md-select name="usuario" ng-model="vm.turma.usuarios"> -->
+<!-- 								<md-option ng-repeat="usuario in vm.usuarios" ng-value="usuario" > -->
+<!-- 									{{usuario.login}} -->
+<!-- 								</md-option> -->
+<!-- 							</md-select> -->
+							
+							
+							<select class="form-control" name="usuario" ng-model="vm.turma.usuarios" multiple>
+				               <option ng-repeat="usuario in vm.usuarios" value="{{usuario.id}}">{{usuario.login}}</option>
+				            </select>
+							
 						</div>
-						<div style="float:right;margin-top:45px;">
-							<button type="button" ng-click="addUsuario();" class="btn btn-default" >
-								<i class="glyphicon glyphicon-plus text-success"></i> <span class="text-success"> Adicionar</span>
-							</button>
-						</div>
+<!-- 						<div style="float:right;margin-top:45px;"> -->
+<!-- 							<button type="button" ng-click="addUsuario();" class="btn btn-default" > -->
+<!-- 								<i class="glyphicon glyphicon-plus text-success"></i> <span class="text-success"> Adicionar</span> -->
+<!-- 							</button> -->
+<!-- 						</div> -->
 					</div>
 	
-					<div class="col-sm-12" >
-						<div class="row" style="margin: 15px !important; display: inline;">
-							<div id="grid1" ui-grid="gridUsuarios" class="grid no-padding-bottom"></div>
-						</div>
-					</div>
+<!-- 					<div class="col-sm-12" > -->
+<!-- 						<div class="row" style="margin: 15px !important; display: inline;"> -->
+<!-- 							<div id="grid1" ui-grid="gridUsuarios" class="grid no-padding-bottom"></div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 			</div>
 		</div>
         

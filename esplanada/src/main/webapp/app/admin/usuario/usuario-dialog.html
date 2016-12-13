@@ -9,11 +9,14 @@
         
         <div class="form-group">
             <label data-translate="userManagement.profiles">Profiles</label>
-            <md-select name="authority" ng-model="vm.user.authorities" required ng-show="vm.user.id == null">
+            <md-select name="perfil" ng-model="vm.user.authorities"  ng-required="vm.user.id == null" ng-show="vm.user.id == null">
 				<md-option ng-repeat="authority in vm.authorities" ng-value="authority" >
 					{{authority}}
 				</md-option>
 			</md-select>
+			<p class="help-block" ng-show="vm.user.authorities == null" data-translate="entity.validation.required" style="margin-top:-22px;">
+                    This field is required.
+            </p>
 			<input type="text" class="form-control" name="perfil" ng-model="vm.user.authorities" readonly ng-show="vm.user.id != null">
         </div>
         

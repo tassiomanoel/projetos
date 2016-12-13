@@ -1,12 +1,13 @@
 package br.com.esplanada.web.rest.vm;
 
 import java.time.ZonedDateTime;
-
 import java.util.Set;
 
+import javax.validation.constraints.Size;
+
+import br.com.esplanada.domain.Turma;
 import br.com.esplanada.domain.User;
 import br.com.esplanada.service.dto.UserDTO;
-import javax.validation.constraints.Size;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.
@@ -28,6 +29,8 @@ public class ManagedUserVM extends UserDTO {
 
     @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
     private String password;
+    
+    private Turma turma;
 
     public ManagedUserVM() {
     }
@@ -39,12 +42,13 @@ public class ManagedUserVM extends UserDTO {
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
+        this.turma = user.getTurma();
         this.password = null;
     }
 
     public ManagedUserVM(Long id, String login, String password, String firstName, String lastName,
                          String email, boolean activated, String langKey, Set<String> authorities,
-                         String createdBy, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate) {
+                         String createdBy, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate, Turma turma) {
         super(login, firstName, lastName, email, activated, langKey, authorities);
         this.id = id;
         this.createdBy = createdBy;
@@ -52,6 +56,7 @@ public class ManagedUserVM extends UserDTO {
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
         this.password = password;
+        this.turma = turma;
     }
 
     public Long getId() {
@@ -98,8 +103,16 @@ public class ManagedUserVM extends UserDTO {
     public String getPassword() {
         return password;
     }
+    
+    public Turma getTurma() {
+		return turma;
+	}
 
-    @Override
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
+	@Override
     public String toString() {
         return "ManagedUserVM{" +
             "id=" + id +

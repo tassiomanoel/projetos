@@ -1,15 +1,16 @@
 package br.com.esplanada.service.dto;
 
-import br.com.esplanada.config.Constants;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import br.com.esplanada.domain.Authority;
-import br.com.esplanada.domain.User;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-import javax.validation.constraints.*;
-import java.util.Set;
-import java.util.stream.Collectors;
+import br.com.esplanada.config.Constants;
+import br.com.esplanada.domain.Authority;
+import br.com.esplanada.domain.User;
 
 /**
  * A DTO representing a user, with his authorities.
@@ -36,7 +37,7 @@ public class UserDTO {
     private String langKey;
 
     private Set<String> authorities;
-
+    
     public UserDTO() {
     }
 
@@ -59,7 +60,7 @@ public class UserDTO {
         this.authorities = authorities;
     }
 
-    public String getLogin() {
+	public String getLogin() {
         return login;
     }
 
@@ -87,7 +88,7 @@ public class UserDTO {
         return authorities;
     }
 
-    @Override
+	@Override
     public String toString() {
         return "UserDTO{" +
             "login='" + login + '\'' +

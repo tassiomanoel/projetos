@@ -1,22 +1,32 @@
 package br.com.esplanada.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import br.com.esplanada.domain.Turma;
-
-import br.com.esplanada.repository.TurmaRepository;
-import br.com.esplanada.web.rest.util.HeaderUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.codahale.metrics.annotation.Timed;
+
+import br.com.esplanada.domain.Turma;
+import br.com.esplanada.domain.User;
+import br.com.esplanada.repository.TurmaRepository;
+import br.com.esplanada.repository.UserRepository;
+import br.com.esplanada.web.rest.util.HeaderUtil;
 
 /**
  * REST controller for managing Turma.
@@ -29,6 +39,9 @@ public class TurmaResource {
         
     @Inject
     private TurmaRepository turmaRepository;
+    
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * POST  /turmas : Create a new turma.
@@ -45,12 +58,21 @@ public class TurmaResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("turma", "idexists", "A new turma cannot already have an ID")).body(null);
         }
         Turma result = turmaRepository.save(turma);
+        salvarAluno(turma);
         return ResponseEntity.created(new URI("/api/turmas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("turma", result.getId().toString()))
             .body(result);
     }
 
-    /**
+    private void salvarAluno(Turma turma) {
+		for(User usuario : turma.getUsuarios()){
+			User user = userRepository.findOne(usuario.getId());
+			user.setTurma(turma);
+			userRepository.save(user);
+		}
+	}
+
+	/**
      * PUT  /turmas : Updates an existing turma.
      *
      * @param turma the turma to update

@@ -1,11 +1,10 @@
 package br.com.esplanada.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +15,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Turma.
@@ -39,10 +36,8 @@ public class Turma implements Serializable {
     @Column(name = "disciplina")
     private String disciplina;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "turma")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<User> usuarios = new HashSet<>();
+    @OneToMany(mappedBy = "turma")
+    private List<User> usuarios = new ArrayList<User>();
     
 	public Long getId() {
 		return id;
@@ -69,11 +64,11 @@ public class Turma implements Serializable {
 		this.disciplina = disciplina;
 	}
 
-	public Set<User> getUsuarios() {
+	public List<User> getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(Set<User> usuarios) {
+	public void setUsuarios(List<User> usuarios) {
 		this.usuarios = usuarios;
 	}
 
