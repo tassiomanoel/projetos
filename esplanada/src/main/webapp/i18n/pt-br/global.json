@@ -37,7 +37,8 @@
                 "turma":"Turmas",
                 "relatorio":"Relatórios",
                 "frequencia" : "Frequência / Nota",
-                "atividades" : "Atividades"
+                "atividades" : "Anotações",
+                "lancamento" : "Lançamentos de notas e faltas"
             },
             "language": "Idioma"
         },

@@ -1,7 +1,1 @@
-{
-  "libs": [
-    "ecma5",
-    "browser"
-  ],
-  "ecmaVersion": 5
-}
+{"libs":["ecma5","browser"],"ecmaVersion":5,"ide":{}}

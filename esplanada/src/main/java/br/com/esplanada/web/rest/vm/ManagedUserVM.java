@@ -31,6 +31,22 @@ public class ManagedUserVM extends UserDTO {
     private String password;
     
     private Turma turma;
+    
+    private Integer nota1;
+    
+    private Integer nota2;
+    
+    private Integer nota3;
+    
+    private Integer nota4;
+    
+    private Integer faltas;
+    
+    private String anotacao;
+    
+    private String disciplina;
+
+    private String situacao;
 
     public ManagedUserVM() {
     }
@@ -44,11 +60,20 @@ public class ManagedUserVM extends UserDTO {
         this.lastModifiedDate = user.getLastModifiedDate();
         this.turma = user.getTurma();
         this.password = null;
+        this.nota1 = user.getNota1();
+        this.nota2 = user.getNota2();
+        this.nota3 = user.getNota3();
+        this.nota4 = user.getNota4();
+        this.faltas = user.getFaltas();
+        this.anotacao = user.getAnotacao();
+        this.disciplina = user.getDisciplina();
+        this.situacao = user.getSituacao();
     }
 
     public ManagedUserVM(Long id, String login, String password, String firstName, String lastName,
                          String email, boolean activated, String langKey, Set<String> authorities,
-                         String createdBy, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate, Turma turma) {
+                         String createdBy, ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate, Turma turma,
+                         Integer nota1, Integer nota2, Integer nota3, Integer nota4, Integer faltas, String anotacao, String disciplina, String situacao) {
         super(login, firstName, lastName, email, activated, langKey, authorities);
         this.id = id;
         this.createdBy = createdBy;
@@ -57,6 +82,14 @@ public class ManagedUserVM extends UserDTO {
         this.lastModifiedDate = lastModifiedDate;
         this.password = password;
         this.turma = turma;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        this.nota4 = nota4;
+        this.faltas = faltas;
+        this.anotacao = anotacao;
+        this.disciplina = disciplina;
+        this.situacao = situacao;
     }
 
     public Long getId() {
@@ -110,6 +143,70 @@ public class ManagedUserVM extends UserDTO {
 
 	public void setTurma(Turma turma) {
 		this.turma = turma;
+	}
+	
+	public Integer getNota1() {
+		return nota1;
+	}
+
+	public void setNota1(Integer nota1) {
+		this.nota1 = nota1;
+	}
+
+	public Integer getNota2() {
+		return nota2;
+	}
+
+	public void setNota2(Integer nota2) {
+		this.nota2 = nota2;
+	}
+
+	public Integer getNota3() {
+		return nota3;
+	}
+
+	public void setNota3(Integer nota3) {
+		this.nota3 = nota3;
+	}
+
+	public Integer getNota4() {
+		return nota4;
+	}
+
+	public void setNota4(Integer nota4) {
+		this.nota4 = nota4;
+	}
+
+	public Integer getFaltas() {
+		return faltas;
+	}
+
+	public void setFaltas(Integer faltas) {
+		this.faltas = faltas;
+	}
+
+	public String getAnotacao() {
+		return anotacao;
+	}
+
+	public void setAnotacao(String anotacao) {
+		this.anotacao = anotacao;
+	}
+
+	public String getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(String disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
 	}
 
 	@Override

@@ -1,16 +1,18 @@
 package br.com.esplanada.service;
 
-import br.com.esplanada.config.audit.AuditEventConverter;
-import br.com.esplanada.repository.PersistenceAuditEventRepository;
 import java.time.LocalDateTime;
+import java.util.Optional;
+
+import javax.inject.Inject;
+
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
-import java.util.Optional;
+import br.com.esplanada.config.audit.AuditEventConverter;
+import br.com.esplanada.repository.PersistenceAuditEventRepository;
 
 /**
  * Service for managing audit events.

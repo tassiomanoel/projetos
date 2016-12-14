@@ -18,7 +18,8 @@
             identity: identity,
             isAuthenticated: isAuthenticated,
             isIdentityResolved: isIdentityResolved,
-            hasAnyRole: hasAnyRole
+            hasAnyRole: hasAnyRole,
+            usuarioLogado: usuarioLogado 
         };
 
         return service;
@@ -102,6 +103,10 @@
                 return undefined;
             }
         	return _identity.authorities[0];
+        }
+        
+        function usuarioLogado(){
+            return _identity;
         }
     }
 })();

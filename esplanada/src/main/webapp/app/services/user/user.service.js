@@ -8,7 +8,9 @@
     User.$inject = ['$resource'];
 
     function User ($resource) {
-        var service = $resource('api/users/:login', {}, {
+        var service = $resource('api/users/:login/:param', {
+        	param : '@param'
+        }, {
             'query': {method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
@@ -19,7 +21,24 @@
             },
             'save': { method:'POST' },
             'update': { method:'PUT' },
-            'delete':{ method:'DELETE'}
+            'delete':{ method:'DELETE'},
+            'getAlunosPorTurma':{ 
+            	method:'GET',
+            	params: {
+            		param: 'getAlunosPorTurma' 
+            	},
+            	isArray: true
+            },
+            'salvarMediaFinalAluno':{ 
+            	method:'PUT',
+            	params: {
+            		param: 'salvarMediaFinalAluno' 
+            	},
+            	transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
         });
 
         return service;

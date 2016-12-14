@@ -1,5 +1,21 @@
 package br.com.esplanada.service;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.esplanada.domain.Authority;
 import br.com.esplanada.domain.User;
 import br.com.esplanada.repository.AuthorityRepository;
@@ -9,17 +25,6 @@ import br.com.esplanada.security.AuthoritiesConstants;
 import br.com.esplanada.security.SecurityUtils;
 import br.com.esplanada.service.util.RandomUtil;
 import br.com.esplanada.web.rest.vm.ManagedUserVM;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import javax.inject.Inject;
-import java.util.*;
 
 /**
  * Service class for managing users.
@@ -131,6 +136,7 @@ public class UserService {
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(ZonedDateTime.now());
         user.setActivated(true);
+        user.setDisciplina(managedUserVM.getDisciplina());
         userRepository.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
@@ -148,7 +154,7 @@ public class UserService {
     }
 
     public void updateUser(Long id, String login, String firstName, String lastName, String email,
-        boolean activated, String langKey, Set<String> authorities) {
+        boolean activated, String langKey, Set<String> authorities, String disciplina) {
 
         Optional.of(userRepository
             .findOne(id))
@@ -160,6 +166,7 @@ public class UserService {
                 u.setActivated(activated);
                 u.setLangKey(langKey);
                 Set<Authority> managedAuthorities = u.getAuthorities();
+                u.setDisciplina(disciplina);
                 managedAuthorities.clear();
                 authorities.stream().forEach(
                     authority -> managedAuthorities.add(authorityRepository.findOne(authority))
@@ -242,5 +249,9 @@ public class UserService {
             log.debug("Deleting not activated user {}", user.getLogin());
             userRepository.delete(user);
         }
+    }
+    
+    public List<User> getAlunosPorTurma(String login) {
+        return userRepository.getAlunosPorTurma(login);
     }
 }

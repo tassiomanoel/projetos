@@ -10,7 +10,7 @@
         "updated": "Usuário com a identificação {{ param }} foi atualizado ",
         "deleted": "Usuário com a identificação {{ param }} foi removido",
         "delete": {
-            "question": "Você tem certeza que deseja excluir o usuário {{ id }}?"
+            "question": "Você tem certeza que deseja excluir {{ firstName }}?"
         },
         "detail": {
             "title": "Usuário"
@@ -30,6 +30,15 @@
         "disciplina": "Disciplina",
         "permissao": "Permissão",
         "perfil": "Perfil",
-        "criadoem": "Criado em"
+        "criadoem": "Criado em",
+        "nome" : "Nome",
+        "faltas" : "Faltas",
+        "nota1" : "1ª Bimestre",
+        "nota2" : "2ª Bimestre",
+        "nota3" : "3ª Bimestre",
+        "nota4" : "4ª Bimestre",
+        "anotacao" : "Anotação",
+        "situacao" : "Situação",
+        "salvarMedia" : "Salvar Média"
     }
 }

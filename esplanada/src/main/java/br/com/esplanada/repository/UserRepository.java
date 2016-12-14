@@ -32,6 +32,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     @Query(value = "select * from colegioesplanada.usuario where turma_id = ?1", nativeQuery = true)
     List<User> getUsuarioPorTurma(Long idTurma);
+    
+    @Query(value = "select user from User user inner join user.turma turma where turma.disciplina = (select usuario.disciplina from User usuario where usuario.login = ?1)")
+    List<User> getAlunosPorTurma(String login);
 
     @Override
     void delete(User t);

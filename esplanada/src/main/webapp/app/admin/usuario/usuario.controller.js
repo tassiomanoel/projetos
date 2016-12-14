@@ -64,19 +64,29 @@
             vm.queryCount = vm.totalItems;
             vm.page = pagingParams.page;
             angular.forEach(data, function(lista){
-            	angular.forEach(lista.authorities, function(roles){
-            		var cont = 0;
-            		if(roles == 'ROLE_ADMIN'){
-            			if(lista.authorities.length > 1){
-            				lista.authorities[1] = 'GESTOR';
-            			} else {
-            				lista.authorities[0] = 'GESTOR';
-            			}
-            		} else if(roles == 'ROLE_USER'){
-            			lista.authorities[0] = 'ALUNO';
-            		}
-            		cont++;
-            	});
+            	if(lista.authorities.length == 1){
+            		angular.forEach(lista.authorities, function(roles){
+                		if(roles == 'ROLE_ADMIN'){
+                			if(lista.authorities.length > 1){
+                				lista.authorities[1] = 'GESTOR';
+                			} else {
+                				lista.authorities[0] = 'GESTOR';
+                			}
+                		} else if(roles == 'ROLE_USER'){
+                			lista.authorities[0] = 'ALUNO';
+                		} else {
+                			lista.authorities[0] = 'PROFESSOR';
+                		}
+                	});
+            	} else {
+            		angular.forEach(lista.authorities, function(roles){
+                		if(roles == 'ROLE_PROFESSOR'){
+                			lista.authorities[0] = 'PROFESSOR';
+                			lista.authorities[1] = '';
+                		}
+                	});
+            	}
+            	
             });
             vm.users = data;
         }

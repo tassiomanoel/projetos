@@ -1,0 +1,51 @@
+<form name="deleteForm" ng-submit="vm.confirmDelete(vm.user.login)">
+
+
+<div>
+    <h2 data-translate="global.menu.admin.lancamento">lancar</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row"  style="float:right">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ng-click="salvarMedia()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="userManagement.salvarMedia">
+                        salvar media
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th style="width:76px"><span data-translate="global.field.id">ID</span></th>
+                    <th style="width:529px"><span data-translate="userManagement.nome">Nome</span></th>
+                    <th style="width:76px"><span data-translate="userManagement.faltas">faltas</span></th>
+                    <th style="width:76px"><span data-translate="userManagement.nota1">nota1</span></th>
+                    <th style="width:76px"><span data-translate="userManagement.nota2">nota2</span></th>
+                    <th style="width:76px"><span data-translate="userManagement.nota3">nota3</span></th>
+                    <th style="width:76px"><span data-translate="userManagement.nota4">nota4</span></th>
+                    <th><span data-translate="userManagement.situacao">situacao</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aluno in alunosPorTurma track by aluno.id">
+                    <td>{{aluno.id}}</td>
+                    <td style="width:329px">{{aluno.firstName}}</td>
+                    <td><input type="number" ng-model="aluno.faltas" style="width: 50px;" max="50"></td>
+                    <td><input type="number" ng-model="aluno.nota1" style="width: 50px;" max="10"></td>
+                    <td><input type="number" ng-model="aluno.nota2" style="width: 50px;" max="10"></td>
+                    <td><input type="number" ng-model="aluno.nota3" style="width: 50px;" max="10"></td>
+                    <td><input type="number" ng-model="aluno.nota4" style="width: 50px;" max="10" ng-change="calcularMedia({aluno:aluno})"></td>
+                    <td><label name="aprovado"  >{{aluno.situacao}}</label></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</form>

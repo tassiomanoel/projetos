@@ -1,0 +1,34 @@
+<form name="deleteForm" ng-submit="vm.confirmDelete(vm.user.login)">
+
+
+<div>
+    <h2 data-translate="global.menu.admin.lancamento">lancar</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row"  style="float:right">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ng-click="salvarMedia()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="userManagement.salvarMedia">
+                        salvar media
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="form-group">
+        <label >Aluno</label>
+        <md-select name="perfil" ng-model="vm.user.authorities"  ng-required="vm.user.id == null" ng-show="vm.user.id == null">
+			<md-option ng-repeat="authority in vm.authorities" ng-value="authority" >
+				{{authority}}
+			</md-option>
+		</md-select>
+    </div>
+    
+     <div class="form-group">
+     	<textarea cols="50" rows="50" ng-model="aluno.anotacao"> </textarea>
+     </div>
+</div>
+
+</form>

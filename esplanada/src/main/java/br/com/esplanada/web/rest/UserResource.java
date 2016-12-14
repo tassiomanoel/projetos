@@ -132,7 +132,7 @@ public class UserResource {
         }
         userService.updateUser(managedUserVM.getId(), managedUserVM.getLogin(), managedUserVM.getFirstName(),
             managedUserVM.getLastName(), managedUserVM.getEmail(), managedUserVM.isActivated(),
-            managedUserVM.getLangKey(), managedUserVM.getAuthorities());
+            managedUserVM.getLangKey(), managedUserVM.getAuthorities(), managedUserVM.getDisciplina());
 
         return ResponseEntity.ok()
             .headers(HeaderUtil.createAlert("userManagement.updated", managedUserVM.getLogin()))
@@ -187,5 +187,33 @@ public class UserResource {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
+    }
+    
+    @GetMapping("/users/{login:" + Constants.LOGIN_REGEX + "}/{getAlunosPorTurma}")
+    @Timed
+    public ResponseEntity<List<User>> getAlunosPorTurma(@PathVariable String login) {
+    	List<User> listaAlunosPorTurma = userService.getAlunosPorTurma(login);
+        return new ResponseEntity<>(listaAlunosPorTurma, HttpStatus.OK);
+    }
+    
+    @PutMapping("/users/{salvarMediaFinalAluno}")
+    @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
+    public ResponseEntity<List<User>> updateUser(@RequestBody List<User> listaUsuario) {
+    	for(User usuario : listaUsuario){
+    		if(usuario.getNota1() != null && usuario.getNota2() != null && usuario.getNota3() != null &&
+    				usuario.getNota4() != null && usuario.getFaltas() != null){
+    			User user = userRepository.findOne(usuario.getId());
+    			user.setNota1(usuario.getNota1());
+    			user.setNota2(usuario.getNota2());
+    			user.setNota3(usuario.getNota3());
+    			user.setNota4(usuario.getNota4());
+    			user.setFaltas(usuario.getFaltas());
+    			user.setSituacao(usuario.getSituacao());
+    			userRepository.save(user);
+    		} 	
+    	}
+
+        return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
 }

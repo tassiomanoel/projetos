@@ -14,39 +14,39 @@
 				
 				<div class="row" ng-show="authority == 'ROLE_ADMIN'">
 					<div class="col-md-12">
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<a ui-sref="usuario" ng-click="vm.collapseNavbar()"> 
 								<i class="fa fa-users fa-4"></i>
 			                   	<span data-translate="global.menu.admin.userManagement">User management</span>
 		               		</a>
 						</div>
 			
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<a ui-sref="turma" ng-click="vm.collapseNavbar()"> 
 								<i class="fa fa-archive" aria-hidden="true"></i>
 			          			<span data-translate="global.menu.admin.turma">turma</span>
 		               		</a>
 						</div>
 				
-						<div class="col-md-4">
-							<a ui-sref="usuario" ng-click="vm.collapseNavbar()"> 
-								<i class="fa fa-file-text-o" aria-hidden="true"></i>
-		                      	<span data-translate="global.menu.admin.relatorio">relatorio</span>
-		                	</a>
-						</div>
+<!-- 						<div class="col-md-2"> -->
+<!-- 							<a ui-sref="usuario.nota({login:user.login})" ng-click="vm.collapseNavbar()">  -->
+<!-- 								<i class="fa fa-book" aria-hidden="true"></i> -->
+<!-- 			                   	<span data-translate="global.menu.admin.frequencia">frequencia</span> -->
+<!-- 		               		</a> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 				
 				<div class="row" ng-show="authority == 'ROLE_USER'">
 					<div class="col-md-12">
-						<div class="col-md-2">
+						<div class="col-md-6">
 							<a ui-sref="usuario" ng-click="vm.collapseNavbar()"> 
 								<i class="fa fa-book" aria-hidden="true"></i>
 			                   	<span data-translate="global.menu.admin.frequencia">frequencia</span>
 		               		</a>
 						</div>
 			
-						<div class="col-md-2">
+						<div class="col-md-6">
 							<a ui-sref="turma" ng-click="vm.collapseNavbar()"> 
 								<i class="fa fa-list" aria-hidden="true"></i>
 			          			<span data-translate="global.menu.admin.atividades">atividades</span>
@@ -54,15 +54,24 @@
 						</div>
 					</div>
 				</div>
-
-	
-<!--                 <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.authenticated" translate-compile> -->
-<!--                     If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user"). -->
-<!--                 </div> -->
-
-<!--                 <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register" translate-compile> -->
-<!--                     You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a> -->
-<!--                 </div> -->
+				
+				<div class="row" ng-show="authority == 'ROLE_PROFESSOR'">
+					<div class="col-md-12">
+						<div class="col-md-6">
+							<a ui-sref="usuario.nota({login:user.login})" ng-click="vm.collapseNavbar()"> 
+								<i class="fa fa-book" aria-hidden="true"></i>
+			                   	<span data-translate="global.menu.admin.frequencia">frequencia</span>
+		               		</a>
+						</div>
+			
+						<div class="col-md-6">
+							<a ui-sref="usuario.anotacao" ng-click="vm.collapseNavbar()"> 
+								<i class="fa fa-list" aria-hidden="true"></i>
+			          			<span data-translate="global.menu.admin.atividades">atividades</span>
+		               		</a>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </div>

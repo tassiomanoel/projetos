@@ -94,7 +94,31 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name="turma_id")
     private Turma turma;
+    
+    @Column(name = "nota1")
+    private Integer nota1;
+    
+    @Column(name = "nota2")
+    private Integer nota2;
+    
+    @Column(name = "nota3")
+    private Integer nota3;
+    
+    @Column(name = "nota4")
+    private Integer nota4;
+    
+    @Column(name = "faltas")
+    private Integer faltas;
+    
+    @Column(name = "anotacao")
+    private String anotacao;
+    
+    @Column(name = "disciplina")
+    private String disciplina;
 
+    @Column(name = "situacao")
+    private String situacao;
+    
     public Long getId() {
         return id;
     }
@@ -206,6 +230,70 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
 	public void setTurma(Turma turma) {
 		this.turma = turma;
+	}
+	
+	public Integer getNota1() {
+		return nota1;
+	}
+
+	public void setNota1(Integer nota1) {
+		this.nota1 = nota1;
+	}
+
+	public Integer getNota2() {
+		return nota2;
+	}
+
+	public void setNota2(Integer nota2) {
+		this.nota2 = nota2;
+	}
+
+	public Integer getNota3() {
+		return nota3;
+	}
+
+	public void setNota3(Integer nota3) {
+		this.nota3 = nota3;
+	}
+
+	public Integer getNota4() {
+		return nota4;
+	}
+
+	public void setNota4(Integer nota4) {
+		this.nota4 = nota4;
+	}
+
+	public Integer getFaltas() {
+		return faltas;
+	}
+
+	public void setFaltas(Integer faltas) {
+		this.faltas = faltas;
+	}
+
+	public String getAnotacao() {
+		return anotacao;
+	}
+
+	public void setAnotacao(String anotacao) {
+		this.anotacao = anotacao;
+	}
+
+	public String getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(String disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
 	}
 
 	@Override

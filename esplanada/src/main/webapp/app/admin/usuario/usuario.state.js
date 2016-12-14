@@ -72,7 +72,7 @@
             parent: 'usuario',
             url: '/novo',
             data: {
-                authorities: ['ROLE_ADMIN']
+                authorities: ['ROLE_ADMIN', 'ROLE_PROFESSOR']
             },
             views : {
 				'content@' : {
@@ -97,6 +97,46 @@
             views : {
 				'content@' : {
 					templateUrl : 'app/admin/usuario/usuario-dialog.html',
+					controller : 'UserManagementDialogController',
+					controllerAs: 'vm'
+				}
+			},
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('usuario');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        .state('usuario.nota', {
+            parent: 'usuario',
+            url: '/notas',
+            data: {
+                authorities: ['ROLE_ADMIN', 'ROLE_PROFESSOR']
+            },
+            views : {
+				'content@' : {
+					templateUrl : 'app/admin/usuario/usuario-notas.html',
+					controller : 'UserManagementDialogController',
+					controllerAs: 'vm'
+				}
+			},
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('usuario');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        .state('usuario.anotacao', {
+            parent: 'usuario',
+            url: '/anotacao',
+            data: {
+                authorities: ['ROLE_PROFESSOR']
+            },
+            views : {
+				'content@' : {
+					templateUrl : 'app/admin/usuario/usuario-anotacao.html',
 					controller : 'UserManagementDialogController',
 					controllerAs: 'vm'
 				}
