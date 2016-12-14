@@ -25,10 +25,10 @@
             <span>{{vm.turma.disciplina}}</span>
 		</div>
 		
-		<div class="col-sm-12" >
-			<label class="control-label" data-translate="colegioEsplanadaApp.turma.aluno" for="field_alunos">aluno</label>
+		<div class="col-sm-12" style="margin-top:21px">
+			<label class="control-label" >Alunos turma</label>
 			<div class="row" style="margin: 15px !important; display: inline;">
-				<div id="grid1" ui-grid="gridUsuarios" class="grid no-padding-bottom"></div>
+				<div id="grid1" ui-grid="gridUsuarios" ></div>
 			</div>
 		</div>
 			
@@ -38,10 +38,10 @@
 	        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
 	    </button>
 	
-	    <button type="button" ui-sref="turma-detail.edit({id:vm.turma.id})" class="btn btn-primary">
-	        <span class="glyphicon glyphicon-pencil"></span>
-	        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
-	    </button>
+<!-- 	    <button type="button" ui-sref="turma-detail.edit({id:vm.turma.id})" class="btn btn-primary"> -->
+<!-- 	        <span class="glyphicon glyphicon-pencil"></span> -->
+<!-- 	        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span> -->
+<!-- 	    </button> -->
 	</div>
 	
 </div>

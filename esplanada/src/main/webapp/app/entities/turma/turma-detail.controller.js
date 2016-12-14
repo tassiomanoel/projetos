@@ -16,8 +16,7 @@
         $scope.gridUsuarios = {};
 		
 		$scope.gridUsuarios.columnDefs = [
-										 {name:'Ação', cellTemplate:'<button type="button" class="btn btn-default btn-sm" ng-click="grid.appScope.removeUser(row);"><span class="glyphicon glyphicon-remove-circle"></span></button>',	width: '100', enableFiltering: false},
-										 {name:'Nome', field : 'login'},
+										 {name:'Nome', field : 'firstName'}
 										];
 
         var unsubscribe = $rootScope.$on('colegioEsplanadaApp:turmaUpdate', function(event, result) {

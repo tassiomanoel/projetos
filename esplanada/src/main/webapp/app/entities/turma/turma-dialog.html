@@ -31,42 +31,25 @@
         <div class="row" >
 			<div class="col-sm-12">
 				<div class="panel-subheading">
-					<div class="panel-subtitle"><h4 class="ng-scope">Associar alunos</h4></div>
+					<div class="panel-subtitle"><h4 class="ng-scope">Selecionar alunos</h4></div>
+					<select class="form-control" name="usuario" ng-model="vm.turma.usuarios" multiple>
+				               <option ng-repeat="usuario in vm.usuarios" value="{{usuario.id}}">{{usuario.login}}</option>
+				            </select>
 				</div>
 			</div>
 		
 			<div class="col-sm-12 item-manager">
 				<div class="col-sm-12">
 					<div class="row no-margin-left add-item-row">
-						<div class="col-sm-14">
-							<label class="control-label" data-translate="colegioEsplanadaApp.turma.aluno" for="field_alunos">aluno</label>
-<!-- 				            <md-select name="usuario" ng-model="vm.turma.usuarios"> -->
-<!-- 								<md-option ng-repeat="usuario in vm.usuarios" ng-value="usuario" > -->
-<!-- 									{{usuario.login}} -->
-<!-- 								</md-option> -->
-<!-- 							</md-select> -->
-							
-							
-							<select class="form-control" name="usuario" ng-model="vm.turma.usuarios" multiple>
-				               <option ng-repeat="usuario in vm.usuarios" value="{{usuario.id}}">{{usuario.login}}</option>
-				            </select>
-							
+						<div class="col-sm-14" ng-if="gridUsuarios.data.length > 0" style="margin-top:20px">
+							<label class="control-label" for="field_alunos">Alunos turma</label>
+							<div class="row" style="margin: 15px !important; display: inline;">
+							<div id="grid1" ui-grid="gridUsuarios" ></div>
 						</div>
-<!-- 						<div style="float:right;margin-top:45px;"> -->
-<!-- 							<button type="button" ng-click="addUsuario();" class="btn btn-default" > -->
-<!-- 								<i class="glyphicon glyphicon-plus text-success"></i> <span class="text-success"> Adicionar</span> -->
-<!-- 							</button> -->
-<!-- 						</div> -->
 					</div>
-	
-<!-- 					<div class="col-sm-12" > -->
-<!-- 						<div class="row" style="margin: 15px !important; display: inline;"> -->
-<!-- 							<div id="grid1" ui-grid="gridUsuarios" class="grid no-padding-bottom"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+				</div>
 			</div>
 		</div>
-        
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ui-sref="turma" style="float:left">

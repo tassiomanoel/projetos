@@ -58,18 +58,27 @@ public class TurmaResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("turma", "idexists", "A new turma cannot already have an ID")).body(null);
         }
         Turma result = turmaRepository.save(turma);
-        salvarAluno(turma);
+        salvarAluno(turma, false);
         return ResponseEntity.created(new URI("/api/turmas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("turma", result.getId().toString()))
             .body(result);
     }
 
-    private void salvarAluno(Turma turma) {
-		for(User usuario : turma.getUsuarios()){
+    private void salvarAluno(Turma turma, boolean isUpdate) {
+    	List<User> users = userRepository.getUsuarioPorTurma(turma.getId());
+    	for(User usuario : turma.getUsuarios()){
 			User user = userRepository.findOne(usuario.getId());
 			user.setTurma(turma);
 			userRepository.save(user);
 		}
+    	
+//    	List<User> users = userRepository.getUsuarioPorTurma(turma.getId());
+//		for(User user : users){
+//			if(!turma.getUsuarios().contains(user)){
+//				user.setTurma(null);
+//				userRepository.save(user);
+//			}
+//		}
 	}
 
 	/**
@@ -89,6 +98,7 @@ public class TurmaResource {
             return createTurma(turma);
         }
         Turma result = turmaRepository.save(turma);
+        salvarAluno(turma, true);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("turma", turma.getId().toString()))
             .body(result);
