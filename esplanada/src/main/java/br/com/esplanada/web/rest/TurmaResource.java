@@ -66,19 +66,21 @@ public class TurmaResource {
 
     private void salvarAluno(Turma turma, boolean isUpdate) {
     	List<User> users = userRepository.getUsuarioPorTurma(turma.getId());
-    	for(User usuario : turma.getUsuarios()){
-			User user = userRepository.findOne(usuario.getId());
-			user.setTurma(turma);
-			userRepository.save(user);
-		}
     	
-//    	List<User> users = userRepository.getUsuarioPorTurma(turma.getId());
-//		for(User user : users){
-//			if(!turma.getUsuarios().contains(user)){
-//				user.setTurma(null);
-//				userRepository.save(user);
-//			}
-//		}
+    	if(users.size() > turma.getUsuarios().size()){
+    		for(User usuario : users){
+    			if(!turma.getUsuarios().contains(usuario)){
+    				usuario.setTurma(null);
+    				userRepository.save(usuario);
+    			}
+    		}
+    	} else {
+    		for(User usuario : turma.getUsuarios()){
+    			User user = userRepository.findOne(usuario.getId());
+    			user.setTurma(turma);
+    			userRepository.save(user);
+    		}
+    	}
 	}
 
 	/**
@@ -145,6 +147,11 @@ public class TurmaResource {
     @Timed
     public ResponseEntity<Void> deleteTurma(@PathVariable Long id) {
         log.debug("REST request to delete Turma : {}", id);
+        List<User> users = userRepository.getUsuarioPorTurma(id);
+        for(User usuario : users){
+        	usuario.setTurma(null);
+        	userRepository.save(usuario);
+        }
         turmaRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("turma", id.toString())).build();
     }

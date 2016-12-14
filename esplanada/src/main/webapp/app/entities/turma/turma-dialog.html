@@ -27,15 +27,19 @@
 			</md-select>
         </div>
         
-        
         <div class="row" >
 			<div class="col-sm-12">
 				<div class="panel-subheading">
 					<div class="panel-subtitle"><h4 class="ng-scope">Selecionar alunos</h4></div>
 					<select class="form-control" name="usuario" ng-model="vm.turma.usuarios" multiple>
-				               <option ng-repeat="usuario in vm.usuarios" value="{{usuario.id}}">{{usuario.login}}</option>
-				            </select>
+				       <option ng-repeat="usuario in vm.usuarios" value="{{usuario.id}}">{{usuario.login}}</option>
+				    </select>
 				</div>
+			</div>
+			<div class="col-sm-2 add-item-button-col" style="float: right;width: 12%;margin-top: 5px;">
+				<button type="button" ng-click="addUser();" class="btn btn-default" ng-disabled="desabilitaBotaoAddUser">
+					<i class="glyphicon glyphicon-plus text-success"></i> <span class="text-success"> Adicionar</span>
+				</button>
 			</div>
 		
 			<div class="col-sm-12 item-manager">

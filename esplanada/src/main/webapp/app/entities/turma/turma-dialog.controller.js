@@ -65,14 +65,7 @@
             });
             
             if (vm.turma.id !== null) {
-            	if(vm.turma.usuarios == undefined){
-            		vm.turma.usuarios = $scope.gridUsuarios.data;
-            	} else {
-            		angular.forEach($scope.gridUsuarios.data, function(usuario){
-            			vm.turma.usuarios.push(usuario);
-            		});
-            	}
-            			
+            	vm.turma.usuarios = $scope.gridUsuarios.data;
                 Turma.update(vm.turma, onSaveSuccess, onSaveError);
             } else {
                 Turma.save(vm.turma, onSaveSuccess, onSaveError);
@@ -89,29 +82,30 @@
             vm.isSaving = false;
         }
 
-        $scope.associarAlunos = function(){
-        	vm.turma.alunos
-        	$stateParams.id
-        	vm.turmaAluno = {};
-        	vm.turmaAluno.usuario = {};
-    		vm.turmaAluno.turma = {};
-        	
-        	angular.forEach(vm.turma.alunos, function(aluno){
-        		vm.turmaAluno.usuario.id = aluno;
-        		vm.turmaAluno.turma.id = $stateParams.id
-        	});
-        	
-        	TurmaAluno.save(vm.turmaAluno, onSaveSuccess);
-        }
-        
         $scope.removeUser = function(usuario){
-        	usuario.entity
-        	
         	for(var i = 0; i < $scope.gridUsuarios.data.length; i++){
         		if($scope.gridUsuarios.data[i].id == usuario.entity.id){
         			$scope.gridUsuarios.data.splice([i], 1);
         			vm.usuarios.push(usuario.entity);
         		}
+        	}
+        }
+        
+        $scope.addUser = function(){
+        	angular.forEach(vm.turma.usuarios, function(usuarioSelecionado){
+        		angular.forEach(vm.usuarios, function(usuarioLista){
+        			if(usuarioLista.id == usuarioSelecionado){
+        				$scope.gridUsuarios.data.push(usuarioLista);
+        			}
+        		});
+        	});
+        	
+        	for(var i = 0; i < vm.usuarios.length; i++){
+        		angular.forEach($scope.gridUsuarios.data, function(usuarioGrid){
+        			if(usuarioGrid.id == vm.usuarios[i].id){
+        				vm.usuarios.splice([i], 1);
+        			}
+        		});
         	}
         }
     }
