@@ -1,6 +1,3 @@
-<form name="deleteForm" ng-submit="vm.confirmDelete(vm.user.login)">
-
-
 <div>
     <h2 data-translate="global.menu.admin.lancamento">lancar</h2>
     <jhi-alert></jhi-alert>
@@ -41,11 +38,11 @@
                     <td><input type="number" ng-model="aluno.nota2" style="width: 50px;" max="10"></td>
                     <td><input type="number" ng-model="aluno.nota3" style="width: 50px;" max="10"></td>
                     <td><input type="number" ng-model="aluno.nota4" style="width: 50px;" max="10" ng-change="calcularMedia({aluno:aluno})"></td>
-                    <td><label name="aprovado"  >{{aluno.situacao}}</label></td>
+                    <td ng-show="aluno.situacao == 'Reprovado'" style="background-color: red;"><label name="aprovado"  >{{aluno.situacao}}</label></td>
+                    <td ng-show="aluno.situacao == 'Aprovado'" style="background-color: green;"><label name="aprovado"  >{{aluno.situacao}}</label></td>
+                    <td ng-show="aluno.situacao == undefined" ><label name="aprovado"  >{{aluno.situacao}}</label></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-</form>

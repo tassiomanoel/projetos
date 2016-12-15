@@ -73,7 +73,7 @@
             }
         }
         
-        if($state.current.name == 'usuario.nota'){
+        if($state.current.name == 'usuario.nota' || $state.current.name == 'usuario.anotacao'){
         	User.getAlunosPorTurma({login:usuarioLoagado.login},function(result){
         		$scope.alunosPorTurma = result;
         	});
@@ -94,6 +94,18 @@
         	User.salvarMediaFinalAluno($scope.alunosPorTurma, function(result){
         		result;
         	});
+        }
+        
+        $scope.salvarAnotacao = function(){
+        	User.salvarAnotacaoAluno($scope.alunosPorTurma, function(result){
+        		result;
+        	});
+        }
+        
+        if($state.current.name == 'usuario.aluno'){
+        	User.get({login:usuarioLoagado.login}, function(result){
+        		$scope.areaAluno = result;
+        	})
         }
     }
 })();

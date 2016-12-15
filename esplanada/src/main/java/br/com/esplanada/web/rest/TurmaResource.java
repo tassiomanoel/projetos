@@ -150,6 +150,12 @@ public class TurmaResource {
         List<User> users = userRepository.getUsuarioPorTurma(id);
         for(User usuario : users){
         	usuario.setTurma(null);
+        	usuario.setNota1(null);
+        	usuario.setNota2(null);
+        	usuario.setNota3(null);
+        	usuario.setNota4(null);
+        	usuario.setFaltas(null);
+        	usuario.setSituacao(null);
         	userRepository.save(usuario);
         }
         turmaRepository.delete(id);

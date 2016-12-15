@@ -38,7 +38,8 @@
                 "relatorio":"Relatórios",
                 "frequencia" : "Frequência / Nota",
                 "atividades" : "Anotações",
-                "lancamento" : "Lançamentos de notas e faltas"
+                "lancamento" : "Lançamentos de notas e faltas",
+                "anotacao" : "Anotação de alunos"
             },
             "language": "Idioma"
         },

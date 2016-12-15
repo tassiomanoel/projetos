@@ -199,7 +199,7 @@ public class UserResource {
     @PutMapping("/users/{salvarMediaFinalAluno}")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
-    public ResponseEntity<List<User>> updateUser(@RequestBody List<User> listaUsuario) {
+    public ResponseEntity<List<User>> salvarMediaFinalAluno(@RequestBody List<User> listaUsuario) {
     	for(User usuario : listaUsuario){
     		if(usuario.getNota1() != null && usuario.getNota2() != null && usuario.getNota3() != null &&
     				usuario.getNota4() != null && usuario.getFaltas() != null){
@@ -216,4 +216,15 @@ public class UserResource {
 
         return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
+    
+//    @GetMapping("/users/{salvarAnotacaoAluno}")
+//    @Timed
+//    @Secured(AuthoritiesConstants.ADMIN)
+//    public ResponseEntity<User> salvarAnotacaoAluno(@RequestBody User usuario) {
+//		User user = userRepository.findOne(usuario.getId());
+//		user.setAnotacao(usuario.getAnotacao());
+//		userRepository.save(user);
+//
+//        return new ResponseEntity<>(user, HttpStatus.OK);
+//    }
 }

@@ -148,6 +148,26 @@
                 }]
             }
         })
+        .state('usuario.aluno', {
+            parent: 'usuario',
+            url: '/anotacao',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            views : {
+				'content@' : {
+					templateUrl : 'app/admin/usuario/usuario-aluno.html',
+					controller : 'UserManagementDialogController',
+					controllerAs: 'vm'
+				}
+			},
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('usuario');
+                    return $translate.refresh();
+                }]
+            }
+        })
         .state('usuario.delete', {
             parent: 'usuario',
             url: '/{login}/delete',

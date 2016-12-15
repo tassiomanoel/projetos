@@ -39,6 +39,7 @@
         "nota4" : "4ª Bimestre",
         "anotacao" : "Anotação",
         "situacao" : "Situação",
-        "salvarMedia" : "Salvar Média"
+        "salvarMedia" : "Salvar Média",
+        "salvarAnotacao" : "Salvar Anotação"
     }
 }

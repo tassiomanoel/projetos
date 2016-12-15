@@ -38,6 +38,16 @@
                     data = angular.fromJson(data);
                     return data;
                 }
+            },
+            'salvarAnotacaoAluno':{ 
+            	method:'GET',
+            	params: {
+            		param: 'salvarAnotacaoAluno' 
+            	},
+            	transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
             }
         });
 

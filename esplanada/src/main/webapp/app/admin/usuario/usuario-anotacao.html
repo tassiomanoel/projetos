@@ -2,15 +2,15 @@
 
 
 <div>
-    <h2 data-translate="global.menu.admin.lancamento">lancar</h2>
+    <h2 data-translate="global.menu.admin.anotacao">anotacao</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row"  style="float:right">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ng-click="salvarMedia()" >
+                <button class="btn btn-primary" ng-click="salvarAnotacao()" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="userManagement.salvarMedia">
-                        salvar media
+                    <span  data-translate="userManagement.salvarAnotacao">
+                        salvar anotacao
                     </span>
                 </button>
             </div>
@@ -19,15 +19,15 @@
     <br/>
     <div class="form-group">
         <label >Aluno</label>
-        <md-select name="perfil" ng-model="vm.user.authorities"  ng-required="vm.user.id == null" ng-show="vm.user.id == null">
-			<md-option ng-repeat="authority in vm.authorities" ng-value="authority" >
-				{{authority}}
+        <md-select name="perfil" ng-model="aluno" >
+			<md-option ng-repeat="aluno in alunosPorTurma" ng-value="aluno" >
+				{{aluno.firstName}}
 			</md-option>
 		</md-select>
     </div>
     
      <div class="form-group">
-     	<textarea cols="50" rows="50" ng-model="aluno.anotacao"> </textarea>
+     	<textarea cols="100" rows="5" ng-model="aluno.anotacao" style="width:100%"> </textarea>
      </div>
 </div>
 
