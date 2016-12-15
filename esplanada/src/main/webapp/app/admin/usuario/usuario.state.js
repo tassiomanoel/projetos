@@ -150,7 +150,7 @@
         })
         .state('usuario.aluno', {
             parent: 'usuario',
-            url: '/anotacao',
+            url: '/aluno',
             data: {
                 authorities: ['ROLE_USER']
             },

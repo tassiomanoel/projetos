@@ -217,14 +217,14 @@ public class UserResource {
         return new ResponseEntity<>(listaUsuario, HttpStatus.OK);
     }
     
-//    @GetMapping("/users/{salvarAnotacaoAluno}")
-//    @Timed
-//    @Secured(AuthoritiesConstants.ADMIN)
-//    public ResponseEntity<User> salvarAnotacaoAluno(@RequestBody User usuario) {
-//		User user = userRepository.findOne(usuario.getId());
-//		user.setAnotacao(usuario.getAnotacao());
-//		userRepository.save(user);
-//
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
+    @PostMapping("/users/{salvarAnotacaoAluno}")
+    @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
+    public ResponseEntity<User> salvarAnotacaoAluno(@RequestBody User usuario) {
+		User user = userRepository.findOne(usuario.getId());
+		user.setAnotacao(usuario.getAnotacao());
+		userRepository.save(user);
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 }

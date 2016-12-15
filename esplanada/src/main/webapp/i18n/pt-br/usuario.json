@@ -40,6 +40,10 @@
         "anotacao" : "Anotação",
         "situacao" : "Situação",
         "salvarMedia" : "Salvar Média",
-        "salvarAnotacao" : "Salvar Anotação"
+        "salvarAnotacao" : "Salvar Anotação",
+        "nome":"Nome",
+        "aluno":"Aluno",
+        "anotacaoSalva" : "Anotações salvas",
+        "alunos":"Alunos"
     }
 }

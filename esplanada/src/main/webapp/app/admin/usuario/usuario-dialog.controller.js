@@ -76,6 +76,7 @@
         if($state.current.name == 'usuario.nota' || $state.current.name == 'usuario.anotacao'){
         	User.getAlunosPorTurma({login:usuarioLoagado.login},function(result){
         		$scope.alunosPorTurma = result;
+        		$scope.atualizarAlunoAnotacao();
         	});
         }
         
@@ -93,12 +94,16 @@
         $scope.salvarMedia = function(){
         	User.salvarMediaFinalAluno($scope.alunosPorTurma, function(result){
         		result;
+        		$state.go('usuario.nota',{}, {reload: true});
         	});
         }
-        
+        $scope.alunosAnotacao = [];
         $scope.salvarAnotacao = function(){
-        	User.salvarAnotacaoAluno($scope.alunosPorTurma, function(result){
-        		result;
+        	User.salvarAnotacaoAluno($scope.aluno, function(result){
+        		User.getAlunosPorTurma({login:usuarioLoagado.login},function(result){
+            		$scope.atualizarAlunoAnotacao();
+            		$state.go('usuario.anotacao',{}, {reload: true});
+            	});
         	});
         }
         
@@ -107,5 +112,14 @@
         		$scope.areaAluno = result;
         	})
         }
+        
+        $scope.atualizarAlunoAnotacao = function(){
+        	angular.forEach($scope.alunosPorTurma, function(alunos){
+    			if(alunos.anotacao != undefined){
+    				$scope.alunosAnotacao.push(alunos);
+    			}
+    		});
+        };
+        
     }
 })();

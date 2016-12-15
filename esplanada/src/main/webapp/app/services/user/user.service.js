@@ -40,7 +40,7 @@
                 }
             },
             'salvarAnotacaoAluno':{ 
-            	method:'GET',
+            	method:'POST',
             	params: {
             		param: 'salvarAnotacaoAluno' 
             	},

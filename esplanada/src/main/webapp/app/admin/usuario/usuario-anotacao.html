@@ -1,5 +1,3 @@
-<form name="deleteForm" ng-submit="vm.confirmDelete(vm.user.login)">
-
 
 <div>
     <h2 data-translate="global.menu.admin.anotacao">anotacao</h2>
@@ -31,4 +29,23 @@
      </div>
 </div>
 
-</form>
+<div >
+	<h2 data-translate="userManagement.anotacaoSalva">anotacao</h2>
+	
+	<div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="userManagement.alunos">alunos</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="alunoAnotacao in alunosAnotacao track by alunoAnotacao.id">
+                    <td>{{alunoAnotacao.firstName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+	
+</div>
+
